@@ -1,7 +1,11 @@
+import PresentationCard from "./PresentationCard"
+import '../../style/profile.css'
 
 const Profile = (props) => {
     return(
-        <div></div>
+        <div className="profile">
+            <PresentationCard />
+        </div>
     )
 }
 
