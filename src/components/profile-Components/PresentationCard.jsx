@@ -1,23 +1,29 @@
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { useSelector } from 'react-redux'
 
 const PresentationCard = (props) => {
+    
+    const account = useSelector((state) => state.account.user)
+
     return (
-        <div className="presentationCard">
+
+        <div>
+            {account && <div className="presentationCard">
             <div className="banner">
 
             </div>
             <div className="profileImg">
-
+                <img src={account.image} alt='profilepicture'/>
             </div>
             <div className="bottomPart">
 
                 <div className="whoAmI">
-                    <h2>Nome Dell'Utente</h2>
+                    <h2>{account.name} {account.surname}</h2>
 
-                    <h3>posizione dell' Utente</h3>
+                    <h3>{account.title}</h3>
 
-                    <p>luogo</p>
+                    <p>{account.area}</p>
                 </div>
 
 
@@ -31,7 +37,11 @@ const PresentationCard = (props) => {
                 
             </div>
 
+        </div>}
+             
         </div>
+        
+       
     )
 }
 
