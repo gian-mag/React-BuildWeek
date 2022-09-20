@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ExpSection from './components/expComponent/ExpSection'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (

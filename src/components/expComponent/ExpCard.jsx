@@ -5,12 +5,19 @@ import { useSelector } from 'react-redux'
 import { BiUserCircle } from 'react-icons/bi'
 import '../../style/ExpCard.css'
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import AddExpForm from '../modalComponents/addExpForm';
 
-const ExpCard = (props) => {
+const ExpCard = () => {
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const experiences = useSelector((state) => state.experiences.experiences)
 
   return (
+    <div>
     <Card className="myCard">
 
 
@@ -23,7 +30,7 @@ const ExpCard = (props) => {
           </Typography>
           <div className="myButtonsSect">
             <div className="myBtnWrap">
-              <a className="myLink" href="#">
+              <a className="myLink" href="#" onClick={handleOpen}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match iconExp" width="24" height="24" focusable="false">
                   <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
                 </svg>
@@ -65,6 +72,8 @@ const ExpCard = (props) => {
 
 
     </Card>
+    <AddExpForm show={open} handleClosed={handleClose}/>
+    </div>
   );
 }
 
