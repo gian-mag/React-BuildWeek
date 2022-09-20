@@ -28,9 +28,9 @@ const AddExpForm = (props) => {
         })
     }
 
-    const subAddExp = () => {
+    const subAddExp = (e) => {
         console.log(newExp);
-
+        e.preventDefault()
         let body = {
             'role': newExp.role,
             'company': newExp.company,
@@ -57,7 +57,7 @@ const AddExpForm = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form>
+                <form onSubmit={subAddExp}>
                     <div>
                         <p>Qualifica*</p>
                         <input type="text" placeholder="Esempio: Retail Sales Manager" value={newExp.role} onChange={(e) => { handleChange('role', e.target.value) }} />
@@ -338,11 +338,11 @@ const AddExpForm = (props) => {
                         <textarea cols="30" rows="10" value={newExp.description} onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
                     </div>
 
-
+                    <Button style={{ "borderRadius": "100px" }} variant="contained" type="submit" >Salva</Button>
                 </form>
             </Modal.Body>
             <Modal.Footer>
-                <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subAddExp}>Salva</Button>
+                
 
             </Modal.Footer>
         </Modal>
