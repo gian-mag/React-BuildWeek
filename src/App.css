@@ -14,3 +14,8 @@ html{
 body {
   background-color: #F3F2EF!important;
 }
+
+/* faccio classe generale per margin */
+.myCard {
+  margin: 0.5em 0;
+}
