@@ -1,21 +1,47 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { postExperiencesAction } from '../../redux/actions'
+import { useState } from 'react'
 
 const AddExpForm = (props) => {
 
-    /* const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: "60%",
-        height: "80%",
-        bgcolor: 'background.paper',
-        border: '2px solid #797877',
-        borderRadius: "15px",
-        boxShadow: 24,
-        p: 4,
-    }; */
+    const dispatch = useDispatch()
+
+    const [newExp, setNewExp] = useState({
+
+        role: '',
+        company: '',
+        startDateM: '',
+        startDateY: '',
+        endDateM: '',
+        endDateY: '',
+        description: '',
+        area: '',
+
+    })
+
+    const handleChange = (propertyName, propertyValue) => {
+        setNewExp({
+            ...newExp,
+            [propertyName]: propertyValue,
+        })
+    }
+
+    const subAddExp = () => {
+        console.log(newExp);
+
+        let body = {
+            'role': newExp.role,
+            'company': newExp.company,
+            'startDate': `${newExp.startDateY}-${newExp.startDateM}-01`,
+            'endDate': `${newExp.endDateY}-${newExp.endDateM}-01`,
+            'description': newExp.description,
+            'area': newExp.area
+        }
+        dispatch(postExperiencesAction(body))
+
+    }
 
     return (
         <Modal
@@ -34,19 +60,22 @@ const AddExpForm = (props) => {
                 <form>
                     <div>
                         <p>Qualifica*</p>
-                        <input type="text" placeholder="Esempio: Retail Sales Manager" />
+                        <input type="text" placeholder="Esempio: Retail Sales Manager" value={newExp.role} onChange={(e) => { handleChange('role', e.target.value) }} />
                     </div>
                     <div>
                         <p>Nome Azienda*</p>
-                        <input type="text" name="" placeholder="Esempio: Microsoft" />
+                        <input type="text" name="" placeholder="Esempio: Microsoft" value={newExp.company} onChange={(e) => { handleChange('company', e.target.value) }} />
                     </div>
                     <div>
                         <p>Località*</p>
-                        <input type="text" placeholder="Esempio: Milano, Italia" />
+                        <input type="text" placeholder="Esempio: Milano, Italia" value={newExp.area} onChange={(e) => { handleChange('area', e.target.value) }} />
                     </div>
                     <div>
                         <p>Data di inizio*</p>
-                        <select className="myDate" aria-required="false">
+                        <select className="myDate" aria-required="false" value={newExp.startDateM}
+                            onChange={(e) => {
+                                handleChange('startDateM', e.target.value)
+                            }}>
                             <option value="">Mese</option>
 
                             <option value="1">Gennaio</option>
@@ -62,7 +91,10 @@ const AddExpForm = (props) => {
                             <option value="11">Novembre</option>
                             <option value="12">Dicembre</option>
                         </select>
-                        <select className="myDate" aria-required="true" required="">
+                        <select className="myDate" aria-required="true" required="" value={newExp.startDateY}
+                            onChange={(e) => {
+                                handleChange('startDateY', e.target.value)
+                            }}>
                             <option value="">Anno</option>
 
                             <option value="2022">2022</option>
@@ -172,7 +204,10 @@ const AddExpForm = (props) => {
                     <div>
                         <p>Data di fine</p>
 
-                        <select className="myDate" aria-required="false">
+                        <select className="myDate" aria-required="false" value={newExp.endDateM}
+                            onChange={(e) => {
+                                handleChange('endDateM', e.target.value)
+                            }}>
                             <option value="">Mese</option>
 
                             <option value="1">Gennaio</option>
@@ -188,7 +223,10 @@ const AddExpForm = (props) => {
                             <option value="11">Novembre</option>
                             <option value="12">Dicembre</option>
                         </select>
-                        <select className="myDate" aria-required="true" required="">
+                        <select className="myDate" aria-required="true" required="" value={newExp.endDateY}
+                            onChange={(e) => {
+                                handleChange('endDateY', e.target.value)
+                            }}>
                             <option value="">Anno</option>
 
                             <option value="2022">2022</option>
@@ -297,14 +335,14 @@ const AddExpForm = (props) => {
 
                     <div>
                         <p>Descrizione</p>
-                        <textarea cols="30" rows="10"></textarea>
+                        <textarea cols="30" rows="10" value={newExp.description} onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
                     </div>
 
 
                 </form>
             </Modal.Body>
             <Modal.Footer>
-                <Button style={{"borderRadius": "100px"}} variant="contained" type="submit">Salva</Button>
+                <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subAddExp}>Salva</Button>
 
             </Modal.Footer>
         </Modal>
