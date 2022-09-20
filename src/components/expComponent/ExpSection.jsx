@@ -17,12 +17,16 @@ const ExpSection = () => {
     const [openUp, setOpenUp] = useState(false);
     const handleOpen = () => setOpenUp(true);
     const handleClose = () => setOpenUp(false);
-
+    
     const dispatch = useDispatch()
-
+    
+    const [singleId, setSingleId] = useState('');
+    
     const experiences = useSelector((state) => state.experiences.experiences)
 
     const singleExperience = useSelector((state) => state.experiences.singleExperience)
+
+    const getSingleExperience = (singleId) => {dispatch(getSingleExperiencesAction(singleId))}
 
     return (
         <div className="profileTwo">
@@ -63,7 +67,7 @@ const ExpSection = () => {
                     {
                         experiences.map((experience, i) =>
                         (
-                            <div key={i} className="expWrapWrap">
+                            <div key={i} className="expWrapWrap"  onKeyDown={getSingleExperience(experience.id)}>
                                 <div className="expWrap">
                                     <BiUserCircle className="userExp" />
                                     <div>
@@ -81,7 +85,7 @@ const ExpSection = () => {
                                 <div className="myButtonsSect myButtonSectPut">
                                     <div className="myBtnWrap">
                                         <Link to={"/experience"} className="myLink" onClick={handleOpen}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match iconExp" width="24" height="24" focusable="false">
+                                            <svg onClick={() => setSingleId(experience.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match iconExp" width="24" height="24" focusable="false">
                                                 <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
                                             </svg>
                                         </Link>
@@ -97,7 +101,7 @@ const ExpSection = () => {
             </Card >
             <PutExpForm show={openUp} handleclosed={handleClose} />
         </div >
-    );
+    )
 }
 
 export default ExpSection
