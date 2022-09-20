@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import accountReducer from '../reducers/fetchAccountReducer'
-import experiencestReducer from '../reducers/fetchEperiencesReducers'
+import experiencestReducer from '../reducers/fetchExperiencesReducers'
 
 const bigReducer = combineReducers({
     account: accountReducer,

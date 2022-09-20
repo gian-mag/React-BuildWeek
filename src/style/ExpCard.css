@@ -1,0 +1,8 @@
+.expWrap {
+    display: flex;
+}
+.userExp {
+    font-size: 4em;
+    align-self: center;
+    margin-right: .2em;
+}
