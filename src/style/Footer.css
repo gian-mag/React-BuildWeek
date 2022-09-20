@@ -20,10 +20,15 @@
     justify-content: center;
     align-items: center;
 }
-.footerWrapper:nth-child(1) {
-    margin-left: .5em;
+.footerSection:nth-child(1) {
+    margin-left: .7em;
 }
-
+.footerSection:nth-child(4) {
+    margin-right: .5em;
+}
+.footerSection:last-child {
+    margin-right: .7em;
+}
 .footLogoWrapper {
     display:flex;
     padding: .5em;
@@ -36,6 +41,8 @@
     text-align: left;
     line-height: 2;
     font-size: 12px;
+    align-items: flex-start;
+    height: 100%;
 }
 
 .footFinal {
@@ -43,4 +50,27 @@
     margin-left: .5em;
     padding: 2em 0;
     font-size: 12px;
+}
+
+.iconWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.iconWrap h4 {
+    margin: 0;
+    font-size: 13px;
+}
+.footSectionWrap {
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#lang {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: .3em;
 }
