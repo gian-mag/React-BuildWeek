@@ -8,8 +8,10 @@ import '../../style/ExpCard.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import PutExpForm from '../modalComponents/PutExpForm';
-// import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 // import { getSingleExperiencesAction } from '../../redux/actions'
+import { getExperiencesAction } from '../../redux/actions'
 
 
 const ExpSection = () => {
@@ -18,8 +20,12 @@ const ExpSection = () => {
     const handleOpen = () => setOpenUp(true);
     const handleClose = () => setOpenUp(false);
     
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     
+    useEffect(() => {
+        dispatch(getExperiencesAction())
+    }, [])
+
     const [singleId, setSingleId] = useState('');
     
     const experiences = useSelector((state) => state.experiences.experiences)

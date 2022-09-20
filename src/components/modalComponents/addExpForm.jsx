@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { postExperiencesAction } from '../../redux/actions'
+import { postExperiencesAction } from '../../redux/actions';
 import { useState } from 'react'
 import { getExperiencesAction } from '../../redux/actions'
 

@@ -14,7 +14,6 @@ const BioCard = () => {
     const handleOpen = () => setOpenBio(true);
     const handleClose = () => setOpenBio(false);
 
-
     return (
         <div>
             <Card className="myCard">

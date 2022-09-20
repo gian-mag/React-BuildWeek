@@ -1,10 +1,14 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { getUserAction, putUserAction } from '../../redux/actions'
+import { putUserAction } from '../../redux/actions'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { getUserAction } from '../../redux/actions'
 
 const BioModal = (props) => {
+
+    const account = useSelector((state) => state.account.user)
 
     const dispatch = useDispatch()
 
@@ -15,19 +19,20 @@ const BioModal = (props) => {
         })
     }
 
+
     const [modUser, setModUser] = useState({
-        _id: props.account._id,
-        name: props.account.name,
-        surname: props.account.surname,
-        email: props.account.email,
-        bio: props.account.bio,
-        title: props.account.title,
-        area: props.account.area,
-        image: props.account.image,
-        username: props.account.username,
-        createdAt: props.account.createdAt,
-        updatedAt: props.account.updatedAt,
-        __v: props.account.__v
+        _id: account._id,
+        name: account.name,
+        surname: account.surname,
+        email: account.email,
+        bio: account.bio,
+        title: account.title,
+        area: account.area,
+        image: account.image,
+        username: account.username,
+        createdAt: account.createdAt,
+        updatedAt: account.updatedAt,
+        __v: account.__v
     })
 
     const subModUser = (e) => {
@@ -70,7 +75,7 @@ const BioModal = (props) => {
                 <div className="modalForm">
                     
                         {/* <p>Descrizione</p> */}
-                        <textarea cols="30" rows="10" onChange={(e) => { return handleChange('bio', e.target.value) }}></textarea>
+                        <textarea cols="30" rows="10" onChange={(e) => { handleChange('bio', e.target.value) }}></textarea>
                  
                 </div>
             </Modal.Body>
