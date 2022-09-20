@@ -56,3 +56,9 @@
     border: 1px solid gray;
     color: gray;
 }
+
+.accWrappy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

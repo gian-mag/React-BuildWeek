@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useSelector } from 'react-redux'
 import { BiUserCircle } from 'react-icons/bi'
 import '../../style/ExpCard.css'
+import { Link } from 'react-router-dom'
 
 const ExpCard = (props) => {
 
@@ -29,11 +30,11 @@ const ExpCard = (props) => {
               </a>
             </div>
             <div className="myBtnWrap">
-              <a className="myLink" href="#">
+              <Link to={"/experience"} className="myLink">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match iconExp" width="24" height="24" focusable="false">
                   <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
 
           </div>

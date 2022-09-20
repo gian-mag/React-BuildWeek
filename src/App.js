@@ -3,15 +3,21 @@ import Footer from './components/Footer.jsx'
 import './App.css';
 import NavBar from './components/NavBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ExpSection from './components/expComponent/ExpSection'
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<div><NavBar /> <Profile /> <Footer /></div>}/>
+
+        <Route path="/" element={<Profile />} />
         {/* <Route path="/" element={}/>
         <Route path="/" element={}/> */}
+        <Route path="/experience" element={<ExpSection />} />
+
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
