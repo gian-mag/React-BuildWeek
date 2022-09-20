@@ -1,7 +1,8 @@
-import { GET_EXPERIENCES } from "../actions"
+import { GET_EXPERIENCES, GET_SINGLE_EXPERIENCE } from "../actions"
 
 const initialState = {
-    experiences: []
+    experiences: [],
+    singleExperience: []
 }
 
 const experiencestReducer = (state = initialState, action) => {
@@ -12,6 +13,13 @@ const experiencestReducer = (state = initialState, action) => {
           experiences: action.payload, 
         }
   
+        case GET_SINGLE_EXPERIENCE: {
+          return {
+            ...state,
+            singleExperience: action.payload,
+          }
+        }
+
       default:
         return state
     }

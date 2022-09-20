@@ -1,5 +1,9 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { useState, useSelector } from 'react'
+import { getExperiencesAction } from '../../redux/actions'
+import { putExperiencesAction } from '../../redux/actions'
 
 const PutExpForm = (props) => {
 
@@ -16,6 +20,47 @@ const PutExpForm = (props) => {
         boxShadow: 24,
         p: 4,
     }; */
+    
+
+    const dispatch = useDispatch()
+
+    /* const toModExp = useSelector() */
+
+    const [modExp, setModExp] = useState({
+        id: props.id,
+        role: '',
+        company: '',
+        startDateM: '',
+        startDateY: '',
+        endDateM: '',
+        endDateY: '',
+        description: '',
+        area: '',
+
+    })
+
+    const handleChange = (propertyName, propertyValue) => {
+        setModExp({
+            ...modExp,
+            [propertyName]: propertyValue,
+        })
+    }
+
+    const subModExp = (e) => {
+        console.log(modExp);
+        e.preventDefault()
+        let body = {
+            'role': modExp.role,
+            'company': modExp.company,
+            'startDate': `${modExp.startDateY}-${modExp.startDateM}-01`,
+            'endDate': `${modExp.endDateY}-${modExp.endDateM}-01`,
+            'description': modExp.description,
+            'area': modExp.area
+        }
+        dispatch(putExperiencesAction(body))
+        dispatch(getExperiencesAction())
+
+    }
 
     return (
         <Modal
@@ -25,7 +70,7 @@ const PutExpForm = (props) => {
             centered
 
         >
-            <Modal.Header closeButton onHide={props.handleClosed}>
+            <Modal.Header closeButton onHide={props.handleclosed}>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Aggiungi esperienza
                 </Modal.Title>
@@ -34,19 +79,27 @@ const PutExpForm = (props) => {
                 <form className="modalForm">
                     <div>
                         <p>Qualifica*</p>
-                        <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required/>
+                        <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required onChange={(e) => {
+                            handleChange('role', e.target.value)
+                        }}/>
                     </div>
                     <div>
                         <p>Nome Azienda*</p>
-                        <input className="inputForm" type="text" name="" placeholder="Esempio: Microsoft" required/>
+                        <input className="inputForm" type="text" name="" placeholder="Esempio: Microsoft" required onChange={(e) => {
+                            handleChange('company', e.target.value)
+                        }}/>
                     </div>
                     <div>
                         <p>Località*</p>
-                        <input className="inputForm" type="text" placeholder="Esempio: Milano, Italia" required/>
+                        <input className="inputForm" type="text" placeholder="Esempio: Milano, Italia" required onChange={(e) => {
+                            handleChange('area', e.target.value)
+                        }}/>
                     </div>
                     <div>
                         <p>Data di inizio*</p>
-                        <select className="myDate" aria-required="false" required>
+                        <select className="myDate" aria-required="false" required onChange={(e) => {
+                            handleChange('startDateM', e.target.value)
+                        }}>
                             <option value="">Mese</option>
 
                             <option value="1">Gennaio</option>
@@ -62,7 +115,9 @@ const PutExpForm = (props) => {
                             <option value="11">Novembre</option>
                             <option value="12">Dicembre</option>
                         </select>
-                        <select className="myDate" aria-required="true" required="">
+                        <select className="myDate" aria-required="true" required onChange={(e) => {
+                                handleChange('startDateY', e.target.value)
+                            }}>
                             <option value="">Anno</option>
 
                             <option value="2022">2022</option>
@@ -172,7 +227,9 @@ const PutExpForm = (props) => {
                     <div>
                         <p>Data di fine</p>
 
-                        <select className="myDate" aria-required="false">
+                        <select className="myDate" aria-required="false" required onChange={(e) => {
+                                handleChange('endDateM', e.target.value)
+                            }}>
                             <option value="">Mese</option>
 
                             <option value="1">Gennaio</option>
@@ -188,7 +245,9 @@ const PutExpForm = (props) => {
                             <option value="11">Novembre</option>
                             <option value="12">Dicembre</option>
                         </select>
-                        <select className="myDate" aria-required="true" required="">
+                        <select className="myDate" aria-required="true" required onChange={(e) => {
+                                handleChange('endDateY', e.target.value)
+                            }}>
                             <option value="">Anno</option>
 
                             <option value="2022">2022</option>
@@ -297,7 +356,7 @@ const PutExpForm = (props) => {
 
                     <div>
                         <p>Descrizione</p>
-                        <textarea cols="30" rows="10"></textarea>
+                        <textarea cols="30" rows="10" onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
                     </div>
 
 
@@ -305,7 +364,7 @@ const PutExpForm = (props) => {
             </Modal.Body>
             <Modal.Footer className="footForm">
                 <Button className="delForm">Elimina Esperienza</Button>
-                <Button style={{"borderRadius": "100px"}} variant="contained" type="submit">Salva</Button>
+                <Button style={{"borderRadius": "100px"}} variant="contained" type="button"  onClick={subModExp}>Salva</Button>
 
             </Modal.Footer>
         </Modal>
