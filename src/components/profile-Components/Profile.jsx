@@ -5,13 +5,16 @@ import { getUserAction } from '../../redux/actions'
 import { useEffect } from 'react'
 import ExpCard from '../expComponent/ExpCard'
 
+
 const Profile = (props) => {
+
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         // componentDidMount
         dispatch(getUserAction())
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
     
 
