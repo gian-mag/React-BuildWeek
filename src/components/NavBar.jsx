@@ -61,7 +61,7 @@ const NavBar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search> */}
-                <input type="search" className="inputBar"placeholder='      Cerca'/>
+                <input type="search" className="inputBar" placeholder='      Cerca'/>
                 
             </div><BsSearch className="searchIcon"/>
             <div className="iconWrapper">

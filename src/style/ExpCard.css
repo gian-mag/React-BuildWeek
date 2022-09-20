@@ -1,6 +1,11 @@
 .expWrap {
     display: flex;
 }
+.expWrapWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .userExp {
     font-size: 4em;
     align-self: center;
@@ -29,15 +34,23 @@
 }
 .myButtonsSect {
     display:flex;
+    justify-content: flex-start;
+}
+.myButtonSectPut {
+    align-self: flex-start;
 }
 .myBtnWrap {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 1.5em!important;
+}
+.myBtnWrapFirst {
+    margin: 0!important;
+    margin-right: .5em!important;
 }
 .myLink {
     width: 100%;
@@ -49,4 +62,16 @@
 }
 .myLink:hover {
     background-color: #EBEBEB;
+}
+
+.goBack {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.myBtnPut {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

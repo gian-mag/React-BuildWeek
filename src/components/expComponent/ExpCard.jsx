@@ -6,7 +6,7 @@ import { BiUserCircle } from 'react-icons/bi'
 import '../../style/ExpCard.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import AddExpForm from '../modalComponents/addExpForm';
+import AddExpForm from '../modalComponents/AddExpForm';
 
 const ExpCard = () => {
 
@@ -54,7 +54,7 @@ const ExpCard = () => {
 
               <BiUserCircle className="userExp" />
               <div>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="h6" color="text.secondary">
                   {experience.role}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

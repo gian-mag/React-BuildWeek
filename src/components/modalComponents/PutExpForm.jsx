@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 
-const AddExpForm = (props) => {
+const PutExpForm = (props) => {
 
     /* const style = {
         position: 'absolute',
@@ -27,7 +27,7 @@ const AddExpForm = (props) => {
         >
             <Modal.Header closeButton onHide={props.handleClosed}>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Modifica esperienza
+                    Aggiungi esperienza
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -303,7 +303,8 @@ const AddExpForm = (props) => {
 
                 </form>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className="footForm">
+                <Button className="delForm">Elimina Esperienza</Button>
                 <Button style={{"borderRadius": "100px"}} variant="contained" type="submit">Salva</Button>
 
             </Modal.Footer>
@@ -316,4 +317,4 @@ const AddExpForm = (props) => {
 
 }
 
-export default AddExpForm
+export default PutExpForm
