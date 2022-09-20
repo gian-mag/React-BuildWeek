@@ -5,6 +5,7 @@ import { getUserAction } from '../../redux/actions'
 import { useEffect } from 'react'
 import ExpCard from '../expComponent/ExpCard'
 import { getExperiencesAction } from '../../redux/actions'
+import BioCard from "./BioCard"
 
 
 const Profile = (props) => {
@@ -23,6 +24,7 @@ const Profile = (props) => {
     return(
         <div className="profile">
             <PresentationCard />
+            <BioCard />
             <ExpCard />
         </div>
     )
