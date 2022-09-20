@@ -8,8 +8,8 @@ import '../../style/ExpCard.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import PutExpForm from '../modalComponents/PutExpForm';
-import { useDispatch } from 'react-redux'
-import { getSingleExperiencesAction } from '../../redux/actions'
+// import { useDispatch } from 'react-redux'
+// import { getSingleExperiencesAction } from '../../redux/actions'
 
 
 const ExpSection = () => {
@@ -18,15 +18,15 @@ const ExpSection = () => {
     const handleOpen = () => setOpenUp(true);
     const handleClose = () => setOpenUp(false);
     
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     
     const [singleId, setSingleId] = useState('');
     
     const experiences = useSelector((state) => state.experiences.experiences)
 
-    const singleExperience = useSelector((state) => state.experiences.singleExperience)
+    // const singleExperience = useSelector((state) => state.experiences.singleExperience)
 
-    const getSingleExperience = (singleId) => {dispatch(getSingleExperiencesAction(singleId))}
+    // const getSingleExperience = (singleId) => {dispatch(getSingleExperiencesAction(singleId))}
 
     return (
         <div className="profileTwo">
@@ -67,7 +67,7 @@ const ExpSection = () => {
                     {
                         experiences.map((experience, i) =>
                         (
-                            <div key={i} className="expWrapWrap"  onKeyDown={getSingleExperience(experience.id)}>
+                            <div key={i} className="expWrapWrap">
                                 <div className="expWrap">
                                     <BiUserCircle className="userExp" />
                                     <div>
@@ -92,6 +92,7 @@ const ExpSection = () => {
                                     </div>
 
                                 </div>
+                                <PutExpForm show={openUp} handleclosed={handleClose} exp={experience}/>
                             </div>
                         )
                         )
@@ -99,7 +100,7 @@ const ExpSection = () => {
                 </CardContent>
 
             </Card >
-            <PutExpForm show={openUp} handleclosed={handleClose} />
+            {/* <PutExpForm show={openUp} handleclosed={handleClose} /> */}
         </div >
     )
 }

@@ -4,40 +4,27 @@ import { useDispatch } from 'react-redux'
 import { useState, useSelector } from 'react'
 import { getExperiencesAction } from '../../redux/actions'
 import { putExperiencesAction } from '../../redux/actions'
+import { deleteExperiencesAction } from '../../redux/actions'
 
 const PutExpForm = (props) => {
 
-    /* const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: "60%",
-        height: "80%",
-        bgcolor: 'background.paper',
-        border: '2px solid #797877',
-        borderRadius: "15px",
-        boxShadow: 24,
-        p: 4,
-    }; */
     
-
     const dispatch = useDispatch()
 
-    /* const toModExp = useSelector() */
+   
 
     const [modExp, setModExp] = useState({
-        id: props.id,
-        role: '',
-        company: '',
-        startDateM: '',
-        startDateY: '',
-        endDateM: '',
-        endDateY: '',
-        description: '',
-        area: '',
+        role: props.exp.role,
+        company: props.exp.company,
+        startDateM: props.exp.startDate.slice(5,7),
+        startDateY:  props.exp.startDate.slice(0,4),
+        endDateM: props.exp.startDate.slice(5,7),
+        endDateY: props.exp.startDate.slice(0,4),
+        description: props.exp.description,
+        area: props.exp.area,
 
     })
+
 
     const handleChange = (propertyName, propertyValue) => {
         setModExp({
@@ -48,8 +35,13 @@ const PutExpForm = (props) => {
 
     const subModExp = (e) => {
         console.log(modExp);
+        console.log(props.exp);
         e.preventDefault()
         let body = {
+            "_id": props.exp._id,
+            "createdAt": props.exp.createdAt, 
+            "updatedAt": props.exp.updatedAt, 
+            "username": props.exp.username,  
             'role': modExp.role,
             'company': modExp.company,
             'startDate': `${modExp.startDateY}-${modExp.startDateM}-01`,
@@ -57,9 +49,14 @@ const PutExpForm = (props) => {
             'description': modExp.description,
             'area': modExp.area
         }
-        dispatch(putExperiencesAction(body))
+        dispatch(putExperiencesAction(body, props.exp._id))
         dispatch(getExperiencesAction())
 
+    }
+
+    const delExp = () => {
+        dispatch(deleteExperiencesAction( props.exp._id))
+        dispatch(getExperiencesAction())
     }
 
     return (
@@ -79,25 +76,25 @@ const PutExpForm = (props) => {
                 <form className="modalForm">
                     <div>
                         <p>Qualifica*</p>
-                        <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required onChange={(e) => {
+                        <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required value={modExp.role} onChange={(e) => {
                             handleChange('role', e.target.value)
-                        }}/>
+                        }} />
                     </div>
                     <div>
                         <p>Nome Azienda*</p>
-                        <input className="inputForm" type="text" name="" placeholder="Esempio: Microsoft" required onChange={(e) => {
+                        <input className="inputForm" type="text" name="" placeholder="Esempio: Microsoft" required value={modExp.company} onChange={(e) => {
                             handleChange('company', e.target.value)
-                        }}/>
+                        }} />
                     </div>
                     <div>
                         <p>Località*</p>
-                        <input className="inputForm" type="text" placeholder="Esempio: Milano, Italia" required onChange={(e) => {
+                        <input className="inputForm" type="text" placeholder="Esempio: Milano, Italia" required value={modExp.area} onChange={(e) => {
                             handleChange('area', e.target.value)
-                        }}/>
+                        }} />
                     </div>
                     <div>
                         <p>Data di inizio*</p>
-                        <select className="myDate" aria-required="false" required onChange={(e) => {
+                        <select className="myDate" aria-required="false" required value={modExp.startDateM} onChange={(e) => {
                             handleChange('startDateM', e.target.value)
                         }}>
                             <option value="">Mese</option>
@@ -115,9 +112,9 @@ const PutExpForm = (props) => {
                             <option value="11">Novembre</option>
                             <option value="12">Dicembre</option>
                         </select>
-                        <select className="myDate" aria-required="true" required onChange={(e) => {
-                                handleChange('startDateY', e.target.value)
-                            }}>
+                        <select className="myDate" aria-required="true" required value={modExp.startDateY} onChange={(e) => {
+                            handleChange('startDateY', e.target.value)
+                        }}>
                             <option value="">Anno</option>
 
                             <option value="2022">2022</option>
@@ -227,9 +224,9 @@ const PutExpForm = (props) => {
                     <div>
                         <p>Data di fine</p>
 
-                        <select className="myDate" aria-required="false" required onChange={(e) => {
-                                handleChange('endDateM', e.target.value)
-                            }}>
+                        <select className="myDate" aria-required="false" value={modExp.endDateM} required onChange={(e) => {
+                            handleChange('endDateM', e.target.value)
+                        }}>
                             <option value="">Mese</option>
 
                             <option value="1">Gennaio</option>
@@ -245,9 +242,9 @@ const PutExpForm = (props) => {
                             <option value="11">Novembre</option>
                             <option value="12">Dicembre</option>
                         </select>
-                        <select className="myDate" aria-required="true" required onChange={(e) => {
-                                handleChange('endDateY', e.target.value)
-                            }}>
+                        <select className="myDate" aria-required="true" required value={modExp.endDateY} onChange={(e) => {
+                            handleChange('endDateY', e.target.value)
+                        }}>
                             <option value="">Anno</option>
 
                             <option value="2022">2022</option>
@@ -356,15 +353,15 @@ const PutExpForm = (props) => {
 
                     <div>
                         <p>Descrizione</p>
-                        <textarea cols="30" rows="10" onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
+                        <textarea cols="30" rows="10" value={modExp.description} onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
                     </div>
 
 
                 </form>
             </Modal.Body>
             <Modal.Footer className="footForm">
-                <Button className="delForm">Elimina Esperienza</Button>
-                <Button style={{"borderRadius": "100px"}} variant="contained" type="button"  onClick={subModExp}>Salva</Button>
+                <Button className="delForm" onClick={delExp}>Elimina Esperienza</Button>
+                <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subModExp}>Salva</Button>
 
             </Modal.Footer>
         </Modal>
