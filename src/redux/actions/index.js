@@ -36,13 +36,14 @@ export const getUserAction = () => {
 
 export const putUserAction = (data) => {
   let headers = {
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4'
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
+    "Content-Type": "application/json"
   }
 
   return async (dispatch, getState) => {
     try {
       let resp = await fetch(
-        'https://striveschool-api.herokuapp.com/api/profile/me',
+        'https://striveschool-api.herokuapp.com/api/profile/',
         {
           method: 'PUT',
           headers,

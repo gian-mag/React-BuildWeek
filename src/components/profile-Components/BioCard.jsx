@@ -5,14 +5,16 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import BioModal from './BioModal';
 
-const BioCard = (props) => {
+
+const BioCard = () => {
 
     const account = useSelector((state) => state.account.user)
-    
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    
+
+    const [openBio, setOpenBio] = useState(false);
+    const handleOpen = () => setOpenBio(true);
+    const handleClose = () => setOpenBio(false);
+
+
     return (
         <div>
             <Card className="myCard">
@@ -43,8 +45,8 @@ const BioCard = (props) => {
 
 
             </Card>
-            
-            <BioModal show={open} handleClosed={handleClose}/>
+
+            {<BioModal show={openBio} handleClosed={handleClose} account={account}/>}
 
         </div>
     )
