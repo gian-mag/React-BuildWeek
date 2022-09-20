@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 
 
+=======
+*{
+  padding: 0;
+  margin: 0;
+}
+>>>>>>> origin/profile
 .App {
-  text-align: center;
+  background-color: rgb(243, 242, 239);
+}
+html{
+  background-color: rgb(243, 242, 239);
 }
 
+<<<<<<< HEAD
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -42,3 +53,5 @@
 body {
   background-color: #F3F2EF!important;
 }
+=======
+>>>>>>> origin/profile
