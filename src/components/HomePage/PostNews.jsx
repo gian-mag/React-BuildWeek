@@ -14,7 +14,7 @@ export default function PostNews() {
         <Card>
             <CardContent>
                 <div className="postBtnWrapper">
-                    <Typography gutterBottom variant="h5" component="div" >
+                    <Typography gutterBottom variant="h5" component="div" className="postUserImgWrapper">
                         <img src={account.image} alt="Logo Utente" className="postUserImg" />
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

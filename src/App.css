@@ -160,7 +160,7 @@ select {
   width: 100%;
 } */
 .btnInput {
-  width: 100%;
+  width: 97%;
   min-height: 45px;
   color: #5E5E5E;
   background-color: white!important;
@@ -187,13 +187,19 @@ select {
   border: 5px solid white;
   background-color: black;
 }
+
+.postUserImgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btnPost{
   display: flex;
   justify-content: center;
   align-items: center;
   width:100%;
   flex-wrap: nowrap;
-
 }
 .btnPost:nth-child(4) > p {
   flex: 2
@@ -213,7 +219,7 @@ select {
 
 .centerHomeSection {
   flex: 10;
-  margin: 0 1em;
+  margin: 0 1.5em;
 }
 
 div.MuiTypography-root {
