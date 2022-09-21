@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux'
 import { putUserAction } from '../../redux/actions'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getUserAction } from '../../redux/actions'
 
-const BioModal = (props) => {
+
+const PutUserModal = (props) => {
 
     const account = useSelector((state) => state.account.user)
 
@@ -38,7 +38,7 @@ const BioModal = (props) => {
         __v: account.__v
     })
 
-    const subModUser = (e) => {
+    const subModUserFirstPart = (e) => {
         console.log(modUser);
         e.preventDefault()
         let body = {
@@ -75,15 +75,50 @@ const BioModal = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <div className="modalForm">
-                    
-                        {/* <p>Descrizione</p> */}
-                        <textarea cols="30" rows="10" onChange={(e) => { handleChange('bio', e.target.value) }}></textarea>
-                 
+
+
+                    <form className="modalForm">
+                        <div>
+                            <p>Nome*</p>
+                            <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required value={modUser.name} onChange={(e) => {
+                                handleChange('name', e.target.value)
+                            }} />
+                        </div>
+                        <div>
+                            <p>Cognome*</p>
+                            <input className="inputForm" type="text" name="" placeholder="Esempio: Microsoft" required value={modUser.surname} onChange={(e) => {
+                                handleChange('surname', e.target.value)
+                            }} />
+                        </div>
+                        <div>
+                            <p>Qualifica*</p>
+                            <input cols="30" rows="10" value={modUser.title} onChange={(e) => { handleChange('title', e.target.value) }}/>
+                        </div>
+
+                        <div>
+                            <p>Email*</p>
+                            <input className="inputForm" type="email" placeholder="Esempio: Milano, Italia" required value={modUser.email} onChange={(e) => {
+                                handleChange('email', e.target.value)
+                            }} />
+                        </div>
+                        <div>
+                            <p>Luogo di Nascita*</p>
+                            <input className="myDate" aria-required="false" required value={modUser.area} onChange={(e) => {
+                                handleChange('area', e.target.value)
+                            }} />
+
+
+                        </div>
+
+
+
+                    </form>
+
                 </div>
             </Modal.Body>
             <Modal.Footer className="footForm">
-                
-                <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subModUser}>Salva</Button>
+
+                <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subModUserFirstPart}>Salva</Button>
                 {/* <Button style={{"borderRadius": "100px"}} variant="contained" type="button"  onClick={subModExp}>Salva</Button> */}
 
             </Modal.Footer>
@@ -92,4 +127,4 @@ const BioModal = (props) => {
     )
 }
 
-export default BioModal
+export default PutUserModal
