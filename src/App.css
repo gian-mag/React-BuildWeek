@@ -160,7 +160,7 @@ select {
   width: 100%;
 } */
 .btnInput {
-  width: 250%;
+  width: 100%;
   min-height: 45px;
   color: #5E5E5E;
   background-color: white!important;
@@ -176,6 +176,8 @@ select {
 .postBtnWrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .postUserImg {
@@ -211,4 +213,11 @@ select {
 
 .centerHomeSection {
   width:50%;
+}
+
+div.MuiTypography-root {
+  flex: 1;
+}
+p.MuiTypography-root:nth-child(2) {
+  flex: 5;
 }
