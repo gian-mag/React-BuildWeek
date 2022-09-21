@@ -41,6 +41,7 @@ const AddExpForm = (props) => {
             'area': newExp.area
         }
         dispatch(postExperiencesAction(body))
+        props.handleClosed()
 
     }
 

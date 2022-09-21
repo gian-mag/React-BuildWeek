@@ -2,6 +2,7 @@ export const GET_ALL_USER = 'GET_ALL_USER'
 export const GET_ACCOUNT = 'GET_ACCOUNT'
 export const GET_EXPERIENCES = 'GET_EXPERIENCES'
 export const GET_SINGLE_EXPERIENCE = 'GET_SINGLE_EXPERIENCE'
+export const GET_POSTS = 'GET_POSTS'
 
 
 export const getUserAction = () => {
