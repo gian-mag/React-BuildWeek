@@ -77,3 +77,67 @@ select {
   margin: .3em auto;
   box-sizing: border-box; 
 }
+
+.miniProfile {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 1% auto;
+}
+
+.miniProfileImg{
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  border: 5px solid white;
+  background-color: black;
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.miniPresCard{
+  min-height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.miniAccName {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+.miniAccRole {
+  font-size: .8rem;
+  color: #666666;
+}
+
+.miniBottomPart{ 
+  flex: 2;  
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: center;
+}
+.miniBanner{
+  flex: 4;
+  background-color: darkblue;
+  height: 100%;
+  width: 100%;
+}
+
+.flexProportions {
+  margin-right: 1em!important;
+}
+.flexPropCard {
+  margin: 2em 2em!important;
+}
