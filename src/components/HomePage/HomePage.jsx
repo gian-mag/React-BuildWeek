@@ -5,7 +5,6 @@ import { getUserAction } from '../../redux/actions'
 import { useEffect } from 'react'
 import { getPostsActions } from "../../redux/actions"
 import { useSelector } from "react-redux"
-import PostForm from '../HomePage/PostNews'
 import PostNews from "../HomePage/PostNews"
 
 const HomePage = () => {

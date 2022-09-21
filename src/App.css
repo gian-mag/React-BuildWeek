@@ -232,3 +232,17 @@ p.MuiTypography-root:nth-child(2) {
 div.MuiCardContent-root:nth-child(1) {
   padding: 1em 0 0!important
 }
+
+.burgerIcon {
+  transform: rotate(90deg);
+}
+
+div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1) {
+  background: none!important;
+  border: none!important;
+}
+
+.userLogoh {
+  width: 100%;
+  border-radius: 100%;
+}

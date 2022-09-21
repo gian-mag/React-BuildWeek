@@ -5,15 +5,15 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -27,47 +27,62 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RecipeReviewCard(props) {
+
     const [expanded, setExpanded] = React.useState(false);
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    const handleMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
 
-    <Card className="postCard">
+        <Card className="postCard">
             <CardHeader
                 avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        R
+                    <Avatar>
+                        <img src={props.post.user?.image} alt="user logo" className="userLogoh"/>
                     </Avatar>
                 }
                 action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
+                    <DropdownButton title={<IconButton aria-label="settings" className="dropDownButton">
+                        <MoreVertIcon className="burgerIcon" onClick={handleMenu} />
+                    </IconButton>}>
+                        <Dropdown.Item href="#/action-1">Modifica</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Cancella</Dropdown.Item>
+                    </DropdownButton>
+
                 }
-                title={ props.post.user ?  (`${props.post.user.name} ${props.post.user.surname}`) : ('Anonymous')}
+                title={props.post.user ? (`${props.post.user.name} ${props.post.user.surname}`) : ('Anonymous')}
                 subheader={props.post.createdAt}
             />
             <CardMedia
                 component="img"
                 height="194"
-                image={props.post.image ? (props.post.image) : ('../placehold.webp') }
+                image={props.post.image ? (props.post.image) : ('../placehold.webp')}
                 alt="img"
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                   {props.post.text}
+                    {props.post.text}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                 </IconButton>
-                <IconButton aria-label="share">
+                {/* <IconButton aria-label="share">
                     <ShareIcon />
-                </IconButton>
+                </IconButton> */}
                 {/* <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
