@@ -5,11 +5,20 @@ import { useEffect, useState } from 'react'
 import { getExperiencesAction } from '../../redux/actions'
 import { putExperiencesAction } from '../../redux/actions'
 import { deleteExperiencesAction } from '../../redux/actions'
+import DelModal from '../expComponent/DelModal';
 
 const PutExpForm = (props) => {
 
+    const [openDel, setOpenDel] = useState(false);
+    const handleOpenDel = () => setOpenDel(true);
+    const handleCloseDel = () => setOpenDel(false);
+
 
     const dispatch = useDispatch()
+
+    const closefirstmodal = () => {
+        props.handleclosed()
+    }
 
 
     const [modExp, setModExp] = useState({
@@ -372,11 +381,15 @@ const PutExpForm = (props) => {
                 </form>
             </Modal.Body>
             <Modal.Footer className="footForm">
-                <Button className="delForm" onClick={delExp}>Elimina Esperienza</Button>
+                <Button className="delForm" onClick={handleOpenDel}>Elimina Esperienza</Button>
                 <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subModExp}>Salva</Button>
 
             </Modal.Footer>
+
+                        <DelModal show={openDel} handleClosed={handleCloseDel} ciccu={closefirstmodal} exp={props.exp}/>
+
         </Modal>
+
 
     )
 
