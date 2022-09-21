@@ -11,7 +11,7 @@ const postsReducer = (state = initialState, action) => {
       case GET_POSTS:
         return {
           ...state,
-          experiences: action.payload, 
+          posts: action.payload.splice(0,200), 
         }
 
       default:
