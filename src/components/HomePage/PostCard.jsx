@@ -48,7 +48,7 @@ export default function RecipeReviewCard(props) {
                     </IconButton>
                 }
                 title={ props.post.user ?  (`${props.post.user.name} ${props.post.user.surname}`) : ('Anonymous')}
-                subheader={props.post.user.createdAt}
+                subheader={props.post.createdAt}
             />
             <CardMedia
                 component="img"

@@ -108,6 +108,7 @@ select {
 
 .miniPresCard {
   min-height: 200px;
+  width: 100%;
   background-color: white;
   border-radius: 10px;
   position: relative;
@@ -160,11 +161,10 @@ select {
   width: 100%;
 } */
 .btnInput {
-  width: 97%;
+  width: 96%;
   min-height: 45px;
   color: #5E5E5E;
   background-color: white!important;
-  margin-left: .3em!important;
   text-align: left!important;
   border: 1px solid #5E5E5E;
 }
@@ -186,6 +186,7 @@ select {
   border-radius: 100%;
   border: 5px solid white;
   background-color: black;
+  margin-left: .4em;
 }
 
 .postUserImgWrapper {
@@ -227,4 +228,7 @@ div.MuiTypography-root {
 }
 p.MuiTypography-root:nth-child(2) {
   flex: 5;
+}
+div.MuiCardContent-root:nth-child(1) {
+  padding: 1em 0 0!important
 }
