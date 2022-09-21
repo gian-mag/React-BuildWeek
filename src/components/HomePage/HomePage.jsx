@@ -12,34 +12,39 @@ const HomePage = () => {
 
     const dispatch = useDispatch()
 
-    const posts = useSelector((state) => state.posts.posts)   
-    
+    const posts = useSelector((state) => state.posts.posts)
+
 
     useEffect(() => {
         dispatch(getPostsActions())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
+
 
     useEffect(() => {
         // componentDidMount
         dispatch(getUserAction())
 
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <div className="miniProfile">
-            <MiniProfile className="flexProportions"/>
+            
+            <div className=" flexProportions">
+                <MiniProfile />
+
+            </div>
 
             <div className="centerHomeSection">
                 <PostNews />
                 <hr />
-                {posts && posts.map((e,i)=>(<PostCard className="flexPropCard" key={e._id} post={e}/>))}
+                {posts && posts.map((e, i) => (<PostCard className="flexPropCard" key={e._id} post={e} />))}
             </div>
-            
-            <MiniProfile className="flexProportions"/>
-            
+
+            <div className=" flexProportions">
+                <MiniProfile />
+            </div>
         </div>
     )
 

@@ -147,7 +147,7 @@ select {
 
 /* POST SECTION / HOMEPAGE */
 .flexProportions {
-  margin-right: 1em !important;
+  flex: 1;
 }
 
 .postCard {
@@ -212,7 +212,8 @@ select {
 }
 
 .centerHomeSection {
-  width:50%;
+  flex: 10;
+  margin: 0 1em;
 }
 
 div.MuiTypography-root {
