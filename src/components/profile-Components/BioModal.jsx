@@ -77,7 +77,7 @@ const BioModal = (props) => {
                 <div className="modalForm">
                     
                         {/* <p>Descrizione</p> */}
-                        <textarea cols="30" rows="10" onChange={(e) => { handleChange('bio', e.target.value) }}></textarea>
+                        <textarea cols="30" rows="10" value={modUser.bio} onChange={(e) => { handleChange('bio', e.target.value) }}></textarea>
                  
                 </div>
             </Modal.Body>
