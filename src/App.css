@@ -229,6 +229,7 @@ div.MuiTypography-root {
 p.MuiTypography-root:nth-child(2) {
   flex: 5;
 }
+
 div.MuiCardContent-root:nth-child(1) {
   padding: 1em 0 0!important
 }
@@ -245,4 +246,42 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
 .userLogoh {
   width: 100%;
   border-radius: 100%;
+}
+
+
+/* form post add */
+
+.profileintomodal{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.profileintomodal div{
+ width: 20%;
+}
+.profileintomodal div img{
+ width: 100%;
+ border-radius: 100%;
+}
+.textareaNP{
+  border: none;
+}
+.btnfooterNPmodal{
+  margin-left: auto !important;
+}
+.allidk{
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(145, 145, 145, 0.509);
+}
+.footFormPost{
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+.footFormPost svg {
+  margin-left: 20px;
+  margin-right: 5px;
 }

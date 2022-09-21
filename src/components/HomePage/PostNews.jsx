@@ -3,12 +3,17 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { useSelector } from 'react-redux'
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import ModalNewPost from './ModalNewPost';
+import { useState } from 'react';
 
 export default function PostNews() {
 
     const account = useSelector((state) => state.account.user)
+
+    const [openMP, setOpenMP] = useState(false);
+    const handleOpen = () => setOpenMP(true);
+    const handleClose = () => setOpenMP(false);
 
     return (
         <Card>
@@ -17,7 +22,7 @@ export default function PostNews() {
                     <Typography gutterBottom variant="h5" component="div" className="postUserImgWrapper">
                         <img src={account.image} alt="Logo Utente" className="postUserImg" />
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" onClick={handleOpen}>
                         <input className="btnInput" style={{ "borderRadius": "100px" }} type="text" placeholder="  Avvia un post" />
                     </Typography>
                 </div>
@@ -49,6 +54,7 @@ export default function PostNews() {
                 </div>
 
             </CardActions>
+            <ModalNewPost show={openMP} handleClosed={handleClose} account={account}/>
         </Card>
     );
 }
