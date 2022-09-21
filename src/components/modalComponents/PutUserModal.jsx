@@ -2,8 +2,9 @@ import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { putUserAction } from '../../redux/actions'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+
 
 
 const PutUserModal = (props) => {
@@ -13,8 +14,8 @@ const PutUserModal = (props) => {
     const dispatch = useDispatch()
 
     const handleChange = (propertyName, propertyValue) => {
-        setModUser({
-            ...modUser,
+        setModUserNoBio({
+            ...modUserNoBio,
             [propertyName]: propertyValue,
         })
     }
@@ -23,7 +24,7 @@ const PutUserModal = (props) => {
         props.handleClosed()
     }
 
-    const [modUser, setModUser] = useState({
+    const [modUserNoBio, setModUserNoBio] = useState({
         _id: account._id,
         name: account.name,
         surname: account.surname,
@@ -39,25 +40,46 @@ const PutUserModal = (props) => {
     })
 
     const subModUserFirstPart = (e) => {
-        console.log(modUser);
+        console.log(modUserNoBio);
         e.preventDefault()
         let body = {
-            '_id': modUser._id,
-            'name': modUser.name,
-            'surname': modUser.surname,
-            'email': modUser.email,
-            'bio': modUser.bio,
-            'title': modUser.title,
-            'area': modUser.area,
-            'image': modUser.image,
-            'username': modUser.username,
-            'createdAt': modUser.createdAt,
-            'updatedAt': modUser.updateAt,
-            '__v': modUser.__v
+            '_id': modUserNoBio._id,
+            'name': modUserNoBio.name,
+            'surname': modUserNoBio.surname,
+            'email': modUserNoBio.email,
+            'bio': modUserNoBio.bio,
+            'title': modUserNoBio.title,
+            'area': modUserNoBio.area,
+            'image': modUserNoBio.image,
+            'username': modUserNoBio.username,
+            'createdAt': modUserNoBio.createdAt,
+            'updatedAt': modUserNoBio.updateAt,
+            '__v': modUserNoBio.__v
         }
         dispatch(putUserAction(body))
         saveModal()
     }
+
+    useEffect(() => {
+
+        setModUserNoBio({
+            _id: account._id,
+            name: account.name,
+            surname: account.surname,
+            email: account.email,
+            bio: account.bio,
+            title: account.title,
+            area: account.area,
+            image: account.image,
+            username: account.username,
+            createdAt: account.createdAt,
+            updatedAt: account.updatedAt,
+            __v: account.__v
+        })
+        console.log(modUserNoBio)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
 
     return (
 
@@ -80,30 +102,30 @@ const PutUserModal = (props) => {
                     <form className="modalForm">
                         <div>
                             <p>Nome*</p>
-                            <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required value={modUser.name} onChange={(e) => {
+                            <input className="inputForm" type="text" placeholder="Nome" required value={modUserNoBio.name} onChange={(e) => {
                                 handleChange('name', e.target.value)
                             }} />
                         </div>
                         <div>
                             <p>Cognome*</p>
-                            <input className="inputForm" type="text" name="" placeholder="Esempio: Microsoft" required value={modUser.surname} onChange={(e) => {
+                            <input className="inputForm" type="text" name="" placeholder="Cognome" required value={modUserNoBio.surname} onChange={(e) => {
                                 handleChange('surname', e.target.value)
                             }} />
                         </div>
                         <div>
                             <p>Qualifica*</p>
-                            <input cols="30" rows="10" value={modUser.title} onChange={(e) => { handleChange('title', e.target.value) }}/>
+                            <input cols="30" rows="10" value={modUserNoBio.title} placeholder="Esempio: Studente, Dirigente.." onChange={(e) => { handleChange('title', e.target.value) }} />
                         </div>
 
                         <div>
                             <p>Email*</p>
-                            <input className="inputForm" type="email" placeholder="Esempio: Milano, Italia" required value={modUser.email} onChange={(e) => {
+                            <input className="inputForm" type="email" placeholder="Esempio: test@test.test" required value={modUserNoBio.email} onChange={(e) => {
                                 handleChange('email', e.target.value)
                             }} />
                         </div>
                         <div>
                             <p>Luogo di Nascita*</p>
-                            <input className="myDate" aria-required="false" required value={modUser.area} onChange={(e) => {
+                            <input className="myDate" aria-required="false" placeholder="Esempio: Milano, Lombardia" required value={modUserNoBio.area} onChange={(e) => {
                                 handleChange('area', e.target.value)
                             }} />
 

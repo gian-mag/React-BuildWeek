@@ -3,12 +3,25 @@ import Button from '@mui/material/Button';
 import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import PutUserModal from '../modalComponents/PutUserModal';
+/* import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getUserAction } from '../../redux/actions' */
 
 
 const PresentationCard = (props) => {
 
     const account = useSelector((state) => state.account.user)
 
+    /* const dispatch = useDispatch()
+
+    useEffect(() => {
+        // componentDidMount
+        dispatch(getUserAction())
+ 
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []) */
+
+      
 
     const [openModal, setOpenModal] = useState(false);
     const handleOpen = () => setOpenModal(true);
