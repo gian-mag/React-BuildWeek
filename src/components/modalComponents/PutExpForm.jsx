@@ -2,9 +2,7 @@ import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { getExperiencesAction } from '../../redux/actions'
 import { putExperiencesAction } from '../../redux/actions'
-import { deleteExperiencesAction } from '../../redux/actions'
 import DelModal from '../expComponent/DelModal';
 
 const PutExpForm = (props) => {
@@ -74,10 +72,6 @@ const PutExpForm = (props) => {
 
     }
 
-    const delExp = () => {
-        dispatch(deleteExperiencesAction(props.exp._id))
-        dispatch(getExperiencesAction())
-    }
 
     return (
 
