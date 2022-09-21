@@ -41,7 +41,7 @@ const AddExpForm = (props) => {
             'area': newExp.area
         }
         dispatch(postExperiencesAction(body))
-        dispatch(getExperiencesAction())
+
     }
 
     return (

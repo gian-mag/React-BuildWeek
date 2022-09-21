@@ -2,7 +2,7 @@ import { GET_EXPERIENCES, GET_SINGLE_EXPERIENCE } from "../actions"
 
 const initialState = {
     experiences: [],
-    singleExperience: []
+    singleExperience: {}
 }
 
 const experiencestReducer = (state = initialState, action) => {

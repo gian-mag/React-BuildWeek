@@ -53,6 +53,7 @@ export const putUserAction = (data) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('modifiche utente avvenute con successo');
+        dispatch(getUserAction())
       } else {
         console.log('error')
       }
@@ -141,6 +142,7 @@ export const postExperiencesAction = (data) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('added succesfully');
+        dispatch(getExperiencesAction())
 
       } else {
         console.log('error')
@@ -171,7 +173,7 @@ export const putExperiencesAction = (data, expId) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('MODIFIED succesfully');
-
+        dispatch(getExperiencesAction())
       } else {
         console.log('error')
       }
@@ -198,7 +200,7 @@ export const deleteExperiencesAction = (expId) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('DELETED succesfully');
-
+        dispatch(getExperiencesAction())
       } else {
         console.log('error')
       }

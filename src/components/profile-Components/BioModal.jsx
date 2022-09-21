@@ -53,7 +53,6 @@ const BioModal = (props) => {
             '__v': modUser.__v
         }
         dispatch(putUserAction(body))
-        dispatch(getUserAction())
 
     }
 

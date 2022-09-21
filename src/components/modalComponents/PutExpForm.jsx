@@ -1,29 +1,40 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getExperiencesAction } from '../../redux/actions'
 import { putExperiencesAction } from '../../redux/actions'
 import { deleteExperiencesAction } from '../../redux/actions'
 
 const PutExpForm = (props) => {
 
-    
+
     const dispatch = useDispatch()
 
-   
 
     const [modExp, setModExp] = useState({
         role: props.exp.role,
         company: props.exp.company,
-        startDateM: props.exp.startDate.slice(5,7),
-        startDateY:  props.exp.startDate.slice(0,4),
-        endDateM: props.exp.startDate.slice(5,7),
-        endDateY: props.exp.startDate.slice(0,4),
+        startDateM: props.exp.startDate.slice(5, 7),
+        startDateY: props.exp.startDate.slice(0, 4),
+        endDateM: props.exp.startDate.slice(5, 7),
+        endDateY: props.exp.startDate.slice(0, 4),
         description: props.exp.description,
         area: props.exp.area,
-
     })
+
+    useEffect(() => {
+        setModExp({
+            role: props.exp.role,
+            company: props.exp.company,
+            startDateM: props.exp.startDate.slice(5, 7),
+            startDateY: props.exp.startDate.slice(0, 4),
+            endDateM: props.exp.startDate.slice(5, 7),
+            endDateY: props.exp.startDate.slice(0, 4),
+            description: props.exp.description,
+            area: props.exp.area,
+        })
+    }, [props.exp])
 
 
     const handleChange = (propertyName, propertyValue) => {
@@ -39,9 +50,9 @@ const PutExpForm = (props) => {
         e.preventDefault()
         let body = {
             "_id": props.exp._id,
-            "createdAt": props.exp.createdAt, 
-            "updatedAt": props.exp.updatedAt, 
-            "username": props.exp.username,  
+            "createdAt": props.exp.createdAt,
+            "updatedAt": props.exp.updatedAt,
+            "username": props.exp.username,
             'role': modExp.role,
             'company': modExp.company,
             'startDate': `${modExp.startDateY}-${modExp.startDateM}-01`,
@@ -50,16 +61,17 @@ const PutExpForm = (props) => {
             'area': modExp.area
         }
         dispatch(putExperiencesAction(body, props.exp._id))
-        dispatch(getExperiencesAction())
+
 
     }
 
     const delExp = () => {
-        dispatch(deleteExperiencesAction( props.exp._id))
+        dispatch(deleteExperiencesAction(props.exp._id))
         dispatch(getExperiencesAction())
     }
 
     return (
+
         <Modal
             {...props}
             size="lg"
@@ -365,9 +377,6 @@ const PutExpForm = (props) => {
 
             </Modal.Footer>
         </Modal>
-
-
-
 
     )
 
