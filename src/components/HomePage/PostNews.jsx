@@ -15,6 +15,8 @@ export default function PostNews() {
     const handleOpen = () => setOpenMP(true);
     const handleClose = () => setOpenMP(false);
 
+
+
     return (
         <Card>
             <CardContent>
@@ -23,12 +25,13 @@ export default function PostNews() {
                         <img src={account.image} alt="Logo Utente" className="postUserImg" />
                     </Typography>
                     <Typography variant="body2" color="text.secondary" onClick={handleOpen}>
-                        <input className="btnInput" style={{ "borderRadius": "100px" }} type="text" placeholder="  Avvia un post"/>
+                        <input className="btnInput" style={{ "borderRadius": "100px" }} type="text" placeholder="  Avvia un post" />
                     </Typography>
                 </div>
             </CardContent>
             <CardActions className="btnVid">
                 <div className="btnPost">
+
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#378FE9" className="mercado-match" width="24" height="24" focusable="false">
                         <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
                     </svg>
@@ -54,7 +57,7 @@ export default function PostNews() {
                 </div>
 
             </CardActions>
-            <ModalNewPost show={openMP} handleClosed={handleClose} account={account}/>
+            <ModalNewPost show={openMP} handleClosed={handleClose} account={account} />
         </Card>
     );
 }
