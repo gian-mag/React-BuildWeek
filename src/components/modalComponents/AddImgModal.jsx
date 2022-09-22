@@ -2,16 +2,41 @@ import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { profileImgPostAction } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const AddImgUser = (props) => {
 
     const dispatch = useDispatch()
 
-    const [img, setImg] = useState('')
+    const [img, setImg] = useState(null)
+    const [fileDataURL, setFileDataURL] = useState(null);
+
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (img) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setFileDataURL(result)
+                }
+            }
+            fileReader.readAsDataURL(img);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+
+    }, [img]);
 
     const imgPost = () => {
         dispatch(profileImgPostAction(img)) 
+        setImg(null)
+        setFileDataURL(null)
+        props.handleClosed()
     }
 
 
@@ -23,15 +48,21 @@ const AddImgUser = (props) => {
             centered
 
         >
-            <Modal.Header closeButton onHide={props.handleClosed}>
+            <Modal.Header closeButton onHide={() => {
+                props.handleClosed()
+                setImg(null)
+                setFileDataURL(null)
+            }}>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Aggiungi un immagine
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <form className="modalForm" id='formimg'>
+
+                    {props.accountimg && <img src={fileDataURL==null ? props.accountimg : fileDataURL} alt="profilePic" className='profilePicModal'/>}
                     
-                    <input type="file" name='profile' onChange={(e)=>(setImg(e.target.files[0]))}/>
+                    <input type="file" name='profile' className='imputPicProfile' onChange={(e)=>(setImg(e.target.files[0]))}/>
                  
                 </form>
             </Modal.Body>

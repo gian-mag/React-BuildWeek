@@ -319,3 +319,45 @@ background-color: #E2F0FE;
 .button404:hover{
   text-decoration: none;
 }
+
+
+/* ! preview all image */
+
+.flexUploadFileExp{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.previewImgExp{
+  width: 75px;
+  height: 75px;
+}
+
+
+.flexcenterpostpreview{
+  display: flex;
+  justify-content: center;
+}
+.previewImgPost{
+  width: 50%;
+}
+
+
+.profilePicModal{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  border: 5px solid white;
+}
+
+.modalForm{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.imputPicProfile{
+  margin-left: 15%;
+}

@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { postExperiencesAction } from '../../redux/actions';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getExperiencesAction } from '../../redux/actions'
 
 const AddExpForm = (props) => {
@@ -10,6 +10,28 @@ const AddExpForm = (props) => {
     const dispatch = useDispatch()
 
     const [img, setImg] = useState(null)
+    const [fileDataURL, setFileDataURL] = useState(null);
+
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (img) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setFileDataURL(result)
+                }
+            }
+            fileReader.readAsDataURL(img);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+
+    }, [img]);
 
     const [newExp, setNewExp] = useState({
 
@@ -44,6 +66,8 @@ const AddExpForm = (props) => {
         }
         dispatch(postExperiencesAction(body, img))
         props.handleClosed()
+        setImg(null)
+        setFileDataURL(null)
 
     }
 
@@ -54,7 +78,11 @@ const AddExpForm = (props) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton onHide={props.handleClosed}>
+            <Modal.Header closeButton onHide={() => {
+                props.handleClosed()
+                setImg(null)
+                setFileDataURL(null)
+            }}>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Modifica esperienza
                 </Modal.Title>
@@ -345,7 +373,10 @@ const AddExpForm = (props) => {
                         <textarea cols="30" rows="10" onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
                     </div>
 
-                    <input type="file" name='profile' onChange={(e)=>(setImg(e.target.files[0]))}/>
+                    <div className='flexUploadFileExp'>
+                        <input type="file" name='profile' onChange={(e) => (setImg(e.target.files[0]))} />
+                        {img !== null && <img src={fileDataURL} alt='loaded_img' className='previewImgExp' />}
+                    </div>
 
                 </form>
             </Modal.Body>
