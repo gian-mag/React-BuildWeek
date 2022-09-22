@@ -75,7 +75,7 @@ const PresentationCard = (props) => {
 
             </div>}
         <PutUserModal show={openModal} handleClosed={handleClose} account={account}/>
-        <AddImgModal show={openImgModal} handleClosed={handleCloseImg}/>
+        <AddImgModal show={openImgModal} handleClosed={handleCloseImg} accountimg={account.image}/>
         </div>
 
     )

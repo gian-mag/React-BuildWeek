@@ -90,7 +90,9 @@ const ModalNewPost = (props) => {
                         <h2 className="miniAccName">{props.account.name} {props.account.surname}</h2>
                     </div>
                     <textarea className='textareaNP' placeholder='Di cosa vorresti parlare?' cols="20" rows="5" onChange={(e) => { handleChange('text', e.target.value) }}></textarea>
-                    {img !== null && <img src={fileDataURL} alt='loaded_img' />}
+                    <div className="flexcenterpostpreview">
+                        {img !== null && <img src={fileDataURL} alt='loaded_img' className='previewImgPost' />}
+                    </div>
                 </div>
             </Modal.Body>
             <Modal.Footer className="footFormPost">
