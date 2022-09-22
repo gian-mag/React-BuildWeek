@@ -1,15 +1,19 @@
 import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
-import { deletePostAction } from '../../redux/actions'
+import { profileImgPostAction } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
+import { useState } from 'react';
 
 const AddImgUser = (props) => {
 
     const dispatch = useDispatch()
 
-    const delPost = () => {
-        dispatch() // metti la tua dispatch ADD IMG
+    const [img, setImg] = useState('')
+
+    const imgPost = () => {
+        dispatch(profileImgPostAction(img)) 
     }
+
 
     return(
         <Modal
@@ -25,16 +29,16 @@ const AddImgUser = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form className="modalForm">
+                <form className="modalForm" id='formimg'>
                     
-                    <input type="file"/>
+                    <input type="file" name='image' value={img} onChange={(e)=>(setImg(e.target.value))}/>
                  
                 </form>
             </Modal.Body>
             <Modal.Footer className="footForm">
                 
                 <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={props.handleClosed}>Annulla</Button>
-                <Button style={{"borderRadius": "100px"}} variant="contained" type="button"  onClick={delPost}>Salva</Button>
+                <Button style={{"borderRadius": "100px"}} variant="contained" type="button"  onClick={imgPost}>Salva</Button>
 
             </Modal.Footer>
         </Modal>

@@ -334,24 +334,26 @@ export const deletePostAction = (postId) => {
 
 // ! image upload
 
-export const profileImgPostAction = (form, img, userId) => {
+export const profileImgPostAction = (img) => {
 
-  let data = new FormData(form)
-  data.append('image', img )
+  let data = new FormData()
+  data.append('image', img ) 
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    'type': 'formData'
   }
 
   return async (dispatch, getState) => {
     try {
       let resp = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
+        `https://striveschool-api.herokuapp.com/api/profile/632821ab6d79a500150902f0/picture`,
         {
-          method: 'PUT',
+          mod: 'no-corse',
+          method: 'POST',
           headers,
-          body: JSON.stringify(data)
+          body: data
         }
       )
       if (resp.ok) {

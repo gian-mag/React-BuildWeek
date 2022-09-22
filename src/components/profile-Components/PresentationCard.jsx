@@ -25,8 +25,8 @@ const PresentationCard = (props) => {
       
 
     const [openImgModal, setOpenImgModal] = useState(false);
-    const handleOpenImg = () => setOpenModal(true);
-    const handleCloseImg = () => setOpenModal(false);
+    const handleOpenImg = () => setOpenImgModal(true);
+    const handleCloseImg = () => setOpenImgModal(false);
 
 
     const [openModal, setOpenModal] = useState(false);
