@@ -57,14 +57,11 @@ const PresentationCard = (props) => {
                             </div>
                         </div>
 
-
-
-
                         <h3>{account.title}</h3>
 
                         <p>{account.area}</p>
-                    </div>
 
+                    </div>
 
                     <div className="buttonArea">
                         <Stack spacing={2} direction="row">
@@ -80,7 +77,6 @@ const PresentationCard = (props) => {
         <PutUserModal show={openModal} handleClosed={handleClose} account={account}/>
         <AddImgModal show={openImgModal} handleClosed={handleCloseImg}/>
         </div>
-
 
     )
 }
