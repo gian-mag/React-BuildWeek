@@ -9,7 +9,7 @@ import BioModal from './BioModal';
 const BioCard = () => {
 
     const account = useSelector((state) => state.account.user)
-
+    console.log(account)
     const [openBio, setOpenBio] = useState(false);
     const handleOpen = () => setOpenBio(true);
     const handleClose = () => setOpenBio(false);
@@ -18,7 +18,9 @@ const BioCard = () => {
         <div>
             <Card className="myCard">
 
-
+                {
+                    
+                }
                 <CardContent>
 
                     <div className="myIconsWrapper">

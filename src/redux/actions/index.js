@@ -123,7 +123,7 @@ export const getSingleExperiencesAction = (expId) => {
   }
 }
 
-export const postExperiencesAction = (data, img=null) => {
+export const postExperiencesAction = (data, img = null) => {
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -146,13 +146,13 @@ export const postExperiencesAction = (data, img=null) => {
         console.log('GETSTATE', getState())
         console.log('added succesfully');
 
-        if(img == null){
+        if (img == null) {
           dispatch(getExperiencesAction())
-        }else{
+        } else {
           dispatch(expImgPostAction(img, cont._id))
-          dispatch(getExperiencesAction())
+        /*   dispatch(getExperiencesAction()) */
         }
-        
+
 
       } else {
         console.log('error')
@@ -252,7 +252,7 @@ export const getPostsActions = () => {
   }
 }
 
-export const postPostsAction = (data, img=null) => {
+export const postPostsAction = (data, img = null) => {
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -273,13 +273,15 @@ export const postPostsAction = (data, img=null) => {
         let cont = await resp.json()
         console.log('GETSTATE', getState())
         console.log('added succesfully');
-        if (img == null){
+        if (img == null) {
           dispatch(getPostsActions())
-        }else{
+        } else {
           dispatch(postImgPostAction(img, cont._id))
-          dispatch(getPostsActions())
+         /*  setTimeout(() => {
+            dispatch(getPostsActions())
+          }, 1500); */
         }
-        
+
 
       } else {
         console.log('error')
@@ -353,7 +355,7 @@ export const deletePostAction = (postId) => {
 export const profileImgPostAction = (img) => {
 
   let data = new FormData()
-  data.append('profile', img ) 
+  data.append('profile', img)
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -385,7 +387,7 @@ export const profileImgPostAction = (img) => {
 export const postImgPostAction = (img, postId) => {
 
   let data = new FormData()
-  data.append('post', img ) 
+  data.append('post', img)
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -404,7 +406,7 @@ export const postImgPostAction = (img, postId) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('uploaded');
-        dispatch(getUserAction())
+        dispatch(getPostsActions())
       } else {
         console.log('error')
       }
@@ -418,7 +420,7 @@ export const postImgPostAction = (img, postId) => {
 export const expImgPostAction = (img, expId) => {
 
   let data = new FormData()
-  data.append('experience', img ) 
+  data.append('experience', img)
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -437,7 +439,7 @@ export const expImgPostAction = (img, expId) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('uploaded');
-        dispatch(getUserAction())
+        dispatch(getExperiencesAction())
       } else {
         console.log('error')
       }

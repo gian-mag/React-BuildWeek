@@ -76,9 +76,9 @@ const PutUserModal = (props) => {
             updatedAt: account.updatedAt,
             __v: account.__v
         })
-        console.log(modUserNoBio)
+        
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [account])
 
 
     return (

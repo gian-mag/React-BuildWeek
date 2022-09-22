@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { putUserAction } from '../../redux/actions'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getUserAction } from '../../redux/actions'
 
@@ -22,6 +22,23 @@ const BioModal = (props) => {
     const saveModal = () => {
         props.handleClosed()
     }
+
+    useEffect(() => {
+        setModUser({
+            _id: account._id,
+            name: account.name,
+            surname: account.surname,
+            email: account.email,
+            bio: account.bio,
+            title: account.title,
+            area: account.area,
+            image: account.image,
+            username: account.username,
+            createdAt: account.createdAt,
+            updatedAt: account.updatedAt,
+            __v: account.__v
+        })
+    },[account])
 
     const [modUser, setModUser] = useState({
         _id: account._id,
@@ -75,14 +92,14 @@ const BioModal = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <div className="modalForm">
-                    
-                        {/* <p>Descrizione</p> */}
-                        <textarea cols="30" rows="10" value={modUser.bio} onChange={(e) => { handleChange('bio', e.target.value) }}></textarea>
-                 
+
+                    {/* <p>Descrizione</p> */}
+                    <textarea cols="30" rows="10" value={modUser.bio} onChange={(e) => { handleChange('bio', e.target.value) }}></textarea>
+
                 </div>
             </Modal.Body>
             <Modal.Footer className="footForm">
-                
+
                 <Button style={{ "borderRadius": "100px" }} variant="contained" type="button" onClick={subModUser}>Salva</Button>
                 {/* <Button style={{"borderRadius": "100px"}} variant="contained" type="button"  onClick={subModExp}>Salva</Button> */}
 
