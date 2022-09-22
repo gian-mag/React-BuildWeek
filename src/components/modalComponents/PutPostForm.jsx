@@ -3,7 +3,6 @@ import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { putPostAction } from '../../redux/actions'
-import DelModal from '../expComponent/DelModal';
 
 const PutPostForm = (props) => {
 

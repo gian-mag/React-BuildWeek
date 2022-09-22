@@ -18,13 +18,13 @@ export default function PostNews() {
 
 
     return (
-        <Card>
-            <CardContent>
+        <Card className="containerPostPost">
+            <CardContent className="postContentWrapper">
                 <div className="postBtnWrapper">
                     <Typography gutterBottom variant="h5" component="div" className="postUserImgWrapper">
                         <img src={account.image} alt="Logo Utente" className="postUserImg" />
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" onClick={handleOpen}>
+                    <Typography className="postFormInput" variant="body2" color="text.secondary" onClick={handleOpen}>
                         <input className="btnInput" style={{ "borderRadius": "100px" }} type="text" placeholder="  Avvia un post" />
                     </Typography>
                 </div>

@@ -85,9 +85,9 @@ select {
 }
 
 .miniProfile {
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
   margin: 1% auto;
 }
@@ -147,8 +147,12 @@ select {
 
 
 /* POST SECTION / HOMEPAGE */
-.flexProportions {
-  flex: 1;
+
+.flexProportionsFirst {
+  width: 225px;
+}
+.flexProportionsSecond {
+  width: 300px;
 }
 
 .postCard {
@@ -193,6 +197,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1!important;
 }
 
 .btnPost{
@@ -219,18 +224,68 @@ select {
 }
 
 .centerHomeSection {
-  flex: 10;
   margin: 0 1.5em;
+  width: 540px!important;
+}
+/* MEDIA QUERY HOMEPAGE */
+@media screen and (max-width: 1200px) {
+  .flexProportionsFirst {
+    width: 180px;
+  }
+  .centerHomeSection {
+    margin: 0 1.5em;
+    width: 432px!important;
+  }
 }
 
-div.MuiTypography-root {
+@media screen and (max-width: 990px) {
+  .flexProportionsSecond {
+    display: none;
+  }
+  .flexProportionsFirst {
+    width: 205px;
+  }
+  .centerHomeSection {
+    margin: 0 1.5em;
+    width: 495px!important;
+  }
+}
+.visualFuffa {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .miniProfile {
+    width:576px;
+    flex-direction: column;
+  }
+  .flexProportionsFirst {
+    width: 100%;
+    margin-bottom: 10px
+  }
+  .visualFuffa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .centerHomeSection {
+    width: 100%!important;
+    margin: 0 0 10px;
+  }
+  .whoAmI {
+    align-self: center;
+  }
+}
+
+/* div.MuiTypography-root {
   flex: 1;
-}
-p.MuiTypography-root:nth-child(2) {
-  flex: 5;
+} */
+.postFormInput {
+  flex: 5!important;
 }
 
-div.MuiCardContent-root:nth-child(1) {
+.postContentWrapper {
   padding: 1em 0 0!important
 }
 
@@ -293,23 +348,32 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
 .uploadedExpImg{
   width: 75px;
   height: 75px;
+  margin-right: .3em;
+  border: 1px solid white;
 }
 
 .card404{
-  width: 20%;
+  width: 320px;
   margin: 10vh auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+.card404 h2 {
+  font-size: 24px;
+}
+.card404 p {
+ margin: 8px 0 25px;
 }
 .button404 p{
-  margin-top: 50px;
+  margin-top: 25px;
   background-color: transparent;
   border: 2px solid #0A66C2;
   color: #0A66C2;
   display: flex;
   align-items: center;
-  padding: .4rem 2rem;
+  padding: .3rem 1.5rem;
   border-radius: 100px;
   font-weight: 500;
 }

@@ -15,8 +15,9 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import { useSelector } from "react-redux"
 import { useState } from 'react'
 import DelPost from './DelPost'
+import { parseISO, format } from 'date-fns'
 
-const ExpandMore = styled((props) => {
+/* const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -25,7 +26,7 @@ const ExpandMore = styled((props) => {
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
-}));
+})); */
 
 
 
@@ -72,12 +73,19 @@ export default function RecipeReviewCard(props) {
                         </DropdownButton>)
                     }
                     title={props.post.user ? (`${props.post.user.name} ${props.post.user.surname}`) : ('Anonymous')}
-                    subheader={props.post.createdAt}
+                    subheader = {format(
+                        parseISO(props.post.createdAt), // 1)
+                        'd MMMM yyyy - HH:mm'
+                      )}
                 />
                 <CardMedia
                     component="img"
                     height="194"
                     image={props.post.image ? (props.post.image) : ('../placehold.webp')}
+                    onError= {({currentTarget}) =>{
+                        currentTarget.onerror = null; 
+                        currentTarget.src="../placehold.webp"
+                    }}
                     alt="img"
                 />
                 <CardContent>
