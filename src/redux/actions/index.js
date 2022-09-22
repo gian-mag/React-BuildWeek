@@ -123,7 +123,7 @@ export const getSingleExperiencesAction = (expId) => {
   }
 }
 
-export const postExperiencesAction = (data) => {
+export const postExperiencesAction = (data, img=null) => {
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -143,7 +143,13 @@ export const postExperiencesAction = (data) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('added succesfully');
-        dispatch(getExperiencesAction())
+
+        if(img == null){
+          dispatch(getExperiencesAction())
+        }else{
+          dispatch(expImgPostAction(img, resp._id))
+        }
+        
 
       } else {
         console.log('error')
@@ -243,7 +249,7 @@ export const getPostsActions = () => {
   }
 }
 
-export const postPostsAction = (data) => {
+export const postPostsAction = (data, img=null) => {
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
@@ -263,7 +269,13 @@ export const postPostsAction = (data) => {
       if (resp.ok) {
         console.log('GETSTATE', getState())
         console.log('added succesfully');
-        dispatch(getPostsActions())
+        if (img == null){
+          dispatch(getPostsActions())
+        }else{
+
+          dispatch(postImgPostAction(img, resp._id))
+        }
+        
 
       } else {
         console.log('error')
@@ -348,7 +360,71 @@ export const profileImgPostAction = (img) => {
       let resp = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/632821ab6d79a500150902f0/picture`,
         {
-          /* mode: 'no-cors', */
+          method: 'POST',
+          headers,
+          body: data
+        }
+      )
+      if (resp.ok) {
+        console.log('GETSTATE', getState())
+        console.log('uploaded');
+        dispatch(getUserAction())
+      } else {
+        console.log('error')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const postImgPostAction = (img, postId) => {
+
+  let data = new FormData()
+  data.append('post', img ) 
+
+  let headers = {
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
+  }
+
+  return async (dispatch, getState) => {
+    try {
+      let resp = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
+        {
+          method: 'POST',
+          headers,
+          body: data
+        }
+      )
+      if (resp.ok) {
+        console.log('GETSTATE', getState())
+        console.log('uploaded');
+        dispatch(getUserAction())
+      } else {
+        console.log('error')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+
+export const expImgPostAction = (img, expId) => {
+
+  let data = new FormData()
+  data.append('experience', img ) 
+
+  let headers = {
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
+  }
+
+  return async (dispatch, getState) => {
+    try {
+      let resp = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/632821ab6d79a500150902f0/experiences/${expId}/picture`,
+        {
           method: 'POST',
           headers,
           body: data
