@@ -361,3 +361,25 @@ background-color: #E2F0FE;
 .imputPicProfile{
   margin-left: 15%;
 }
+
+
+
+/* ! loading screen */
+
+.loadingScreen{
+  position: absolute;
+  z-index: 100000000;
+  background-color: #F3F2EF;
+  width: 100vw;
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+  top: 0;
+  left: 0;
+}
+.loadingScreen svg{
+  margin-bottom: 30px;
+}

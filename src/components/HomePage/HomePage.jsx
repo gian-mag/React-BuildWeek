@@ -8,6 +8,7 @@ import { useSelector } from "react-redux"
 import PostNews from "../HomePage/PostNews"
 import PutPostForm from '../modalComponents/PutPostForm'
 import { useState } from 'react'
+import LoadingScreen from "../LoadingScreen"
 
 const HomePage = () => {
 
@@ -61,6 +62,8 @@ const HomePage = () => {
             {
                 postId && <PutPostForm show={openPutModal} handleclosed={handleClose} post={postId} />
             }
+
+            {pagePosts.length === 0 && <LoadingScreen/>}
 
         </div>
     )
