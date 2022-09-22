@@ -289,3 +289,8 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
   margin-left: 2%;
   margin-right: 1%;
 }
+
+.uploadedExpImg{
+  width: 75px;
+  height: 75px;
+}

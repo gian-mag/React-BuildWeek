@@ -141,13 +141,16 @@ export const postExperiencesAction = (data, img=null) => {
         }
       )
       if (resp.ok) {
+        let cont = await resp.json()
+        console.log(resp);
         console.log('GETSTATE', getState())
         console.log('added succesfully');
 
         if(img == null){
           dispatch(getExperiencesAction())
         }else{
-          dispatch(expImgPostAction(img, resp._id))
+          dispatch(expImgPostAction(img, cont._id))
+          dispatch(getExperiencesAction())
         }
         
 
@@ -267,13 +270,14 @@ export const postPostsAction = (data, img=null) => {
         }
       )
       if (resp.ok) {
+        let cont = await resp.json()
         console.log('GETSTATE', getState())
         console.log('added succesfully');
         if (img == null){
           dispatch(getPostsActions())
         }else{
-
-          dispatch(postImgPostAction(img, resp._id))
+          dispatch(postImgPostAction(img, cont._id))
+          dispatch(getPostsActions())
         }
         
 
