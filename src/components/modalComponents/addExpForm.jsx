@@ -9,6 +9,8 @@ const AddExpForm = (props) => {
 
     const dispatch = useDispatch()
 
+    const [img, setImg] = useState(null)
+
     const [newExp, setNewExp] = useState({
 
         role: '',
@@ -40,7 +42,7 @@ const AddExpForm = (props) => {
             'description': newExp.description,
             'area': newExp.area
         }
-        dispatch(postExperiencesAction(body))
+        dispatch(postExperiencesAction(body, img))
         props.handleClosed()
 
     }
@@ -343,6 +345,7 @@ const AddExpForm = (props) => {
                         <textarea cols="30" rows="10" onChange={(e) => { handleChange('description', e.target.value) }}></textarea>
                     </div>
 
+                    <input type="file" name='profile' onChange={(e)=>(setImg(e.target.files[0]))}/>
 
                 </form>
             </Modal.Body>
