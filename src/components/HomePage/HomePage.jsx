@@ -13,7 +13,7 @@ const HomePage = () => {
 
     const posts = useSelector((state) => state.posts.posts)
 
-    const pagePosts = posts.splice(0, 100)
+    const pagePosts = posts.slice(posts.length - 100).reverse()
 
     useEffect(() => {
         dispatch(getPostsActions())

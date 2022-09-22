@@ -11,7 +11,7 @@ const postsReducer = (state = initialState, action) => {
       case GET_POSTS:
         return {
           ...state,
-          posts: action.payload.reverse(), 
+          posts: action.payload, 
         }
 
       default:

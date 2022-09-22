@@ -31,7 +31,7 @@ const AddImgUser = (props) => {
             <Modal.Body>
                 <form className="modalForm" id='formimg'>
                     
-                    <input type="file" name='image' value={img} onChange={(e)=>(setImg(e.target.value))}/>
+                    <input type="file" name='profile' onChange={(e)=>(setImg(e.target.files[0]))}/>
                  
                 </form>
             </Modal.Body>

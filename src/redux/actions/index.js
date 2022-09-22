@@ -337,12 +337,10 @@ export const deletePostAction = (postId) => {
 export const profileImgPostAction = (img) => {
 
   let data = new FormData()
-  data.append('image', img ) 
+  data.append('profile', img ) 
 
   let headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzI4MjFhYjZkNzlhNTAwMTUwOTAyZjAiLCJpYXQiOjE2NjM1NzQ0NDQsImV4cCI6MTY2NDc4NDA0NH0.19jtd3dROekp-6-Hfjt13YTBBrxtLhgeu4ZcI07tRt4',
-    "Content-Type": "application/json",
-    'type': 'formData'
   }
 
   return async (dispatch, getState) => {
@@ -350,7 +348,7 @@ export const profileImgPostAction = (img) => {
       let resp = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/632821ab6d79a500150902f0/picture`,
         {
-          mod: 'no-corse',
+          /* mode: 'no-cors', */
           method: 'POST',
           headers,
           body: data
