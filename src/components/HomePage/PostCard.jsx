@@ -54,8 +54,8 @@ export default function RecipeReviewCard(props) {
                     </Avatar>
                 }
                 action={
-                    <DropdownButton title={<IconButton aria-label="settings" className="dropDownButton">
-                        <MoreVertIcon className="burgerIcon" onClick={handleMenu} />
+                    <DropdownButton title={<IconButton aria-label="settings" className="dropDownButton"  onClick={handleMenu}>
+                        <MoreVertIcon className="burgerIcon" />
                     </IconButton>}>
                         <Dropdown.Item href="#/action-1">Modifica</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Cancella</Dropdown.Item>
