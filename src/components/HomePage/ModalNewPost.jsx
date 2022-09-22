@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import { Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { postPostsAction } from '../../redux/actions'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const ModalNewPost = (props) => {
 
@@ -11,6 +11,32 @@ const ModalNewPost = (props) => {
     })
 
     const [img, setImg] = useState(null)
+    const [fileDataURL, setFileDataURL] = useState(null);
+
+
+
+    useEffect(() => {
+        let fileReader, isCancel = false;
+        if (img) {
+            fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const { result } = e.target;
+                if (result && !isCancel) {
+                    setFileDataURL(result)
+                }
+            }
+            fileReader.readAsDataURL(img);
+        }
+        return () => {
+            isCancel = true;
+            if (fileReader && fileReader.readyState === 1) {
+                fileReader.abort();
+            }
+        }
+
+    }, [img]);
+
+
 
     const dispatch = useDispatch()
 
@@ -28,6 +54,8 @@ const ModalNewPost = (props) => {
         }
         dispatch(postPostsAction(body, img))
         props.handleClosed()
+        setImg(null)
+        setFileDataURL(null)
     }
 
     const openDialog = () => {
@@ -43,7 +71,11 @@ const ModalNewPost = (props) => {
             centered
 
         >
-            <Modal.Header closeButton onHide={props.handleClosed}>
+            <Modal.Header closeButton onHide={() => {
+                props.handleClosed()
+                setImg(null)
+                setFileDataURL(null)
+            }}>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Nuovo post
                 </Modal.Title>
@@ -58,11 +90,11 @@ const ModalNewPost = (props) => {
                         <h2 className="miniAccName">{props.account.name} {props.account.surname}</h2>
                     </div>
                     <textarea className='textareaNP' placeholder='Di cosa vorresti parlare?' cols="20" rows="5" onChange={(e) => { handleChange('text', e.target.value) }}></textarea>
-
+                    {img !== null && <img src={fileDataURL} alt='loaded_img' />}
                 </div>
             </Modal.Body>
             <Modal.Footer className="footFormPost">
-                <input id='fileid' type='file' hidden onChange={(e)=>(setImg(e.target.files[0]))}/>
+                <input id='fileid' type='file' accept="image/*" hidden onChange={(e) => (setImg(e.target.files[0]))} />
                 <svg onClick={openDialog} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#5E5E5E" className="mercado-match" width="24" height="24" focusable="false">
                     <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
                 </svg>
