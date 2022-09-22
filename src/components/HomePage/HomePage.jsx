@@ -13,6 +13,7 @@ const HomePage = () => {
 
     const posts = useSelector((state) => state.posts.posts)
 
+    const pagePosts = posts.splice(0, 100)
 
     useEffect(() => {
         dispatch(getPostsActions())
@@ -38,7 +39,7 @@ const HomePage = () => {
             <div className="centerHomeSection">
                 <PostNews />
                 <hr />
-                {posts && posts.map((e, i) => (<PostCard className="flexPropCard" key={e._id} post={e} />))}
+                {pagePosts && pagePosts.map((e, i) => (<PostCard className="flexPropCard" key={e._id} post={e} />))}
             </div>
 
             <div className=" flexProportions">

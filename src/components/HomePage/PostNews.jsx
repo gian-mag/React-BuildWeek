@@ -23,7 +23,7 @@ export default function PostNews() {
                         <img src={account.image} alt="Logo Utente" className="postUserImg" />
                     </Typography>
                     <Typography variant="body2" color="text.secondary" onClick={handleOpen}>
-                        <input className="btnInput" style={{ "borderRadius": "100px" }} type="text" placeholder="  Avvia un post" />
+                        <input className="btnInput" style={{ "borderRadius": "100px" }} type="text" placeholder="  Avvia un post"/>
                     </Typography>
                 </div>
             </CardContent>

@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import PutUserModal from '../modalComponents/PutUserModal';
+import AddImgModal from '../modalComponents/AddImgModal';
 /* import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getUserAction } from '../../redux/actions' */
@@ -23,6 +24,11 @@ const PresentationCard = (props) => {
 
       
 
+    const [openImgModal, setOpenImgModal] = useState(false);
+    const handleOpenImg = () => setOpenModal(true);
+    const handleCloseImg = () => setOpenModal(false);
+
+
     const [openModal, setOpenModal] = useState(false);
     const handleOpen = () => setOpenModal(true);
     const handleClose = () => setOpenModal(false);
@@ -35,7 +41,7 @@ const PresentationCard = (props) => {
 
                 </div>
                 <div className="profileImg">
-                    <img src={account.image} alt='profilepicture' />
+                    <img src={account.image} alt='profilepicture' onClick={handleOpenImg}/>
                 </div>
                 <div className="bottomPart">
 
@@ -72,6 +78,7 @@ const PresentationCard = (props) => {
 
             </div>}
         <PutUserModal show={openModal} handleClosed={handleClose} account={account}/>
+        <AddImgModal show={openImgModal} handleClosed={handleCloseImg}/>
         </div>
 
 
