@@ -46,7 +46,9 @@ const ModalNewPost = (props) => {
                 <div className="modalForm">
 
                     <div className="profileintomodal">
-                        <div><img src={props.account.image} alt='profilepicture' /></div>
+                        <div>
+                            <img src={props.account.image} alt='profilepicture' />
+                        </div>
                         <h2 className="miniAccName">{props.account.name} {props.account.surname}</h2>
                     </div>
                     <textarea className='textareaNP' placeholder='Di cosa vorresti parlare?' cols="20" rows="5" onChange={(e) => { handleChange('text', e.target.value) }}></textarea>
