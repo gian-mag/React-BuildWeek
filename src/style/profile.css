@@ -1,0 +1,58 @@
+.profile{
+    width: 60%;
+    margin: 0 auto;
+    box-sizing: border-box; 
+}
+
+.presentationCard{
+    min-height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.banner{
+    flex: 2;
+    background-color: darkblue;
+    height: 30%;
+    width: 100%;
+}
+.profileImg{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 5px solid white;
+    background-color: black;
+    position: absolute;
+    top: 85px;
+    left: 40px;
+}
+.profileImg img{
+    width: 100%;
+    border-radius: 100%;
+}
+.bottomPart{ 
+    flex: 2.4;  
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   
+}
+.whoAmI h3{
+    font-size: 1rem;
+}
+
+.buttonArea Button{
+    border-radius: 100px ;
+}
+.buttonArea Button:nth-child(2){
+    border: 1px solid #1565C0;
+}
+.buttonArea Button:nth-child(3){
+    border: 1px solid gray;
+    color: gray;
+}
