@@ -78,16 +78,20 @@ export default function RecipeReviewCard(props) {
                         'd MMMM yyyy - HH:mm'
                       )}
                 />
-                <CardMedia
+                {
+                   props.post.image && <CardMedia
+
                     component="img"
                     height="194"
-                    image={props.post.image ? (props.post.image) : ('../placehold.webp')}
+                    image={props.post.image}
                     onError= {({currentTarget}) =>{
                         currentTarget.onerror = null; 
                         currentTarget.src="../placehold.webp"
                     }}
                     alt="img"
                 />
+                }
+                
                 <CardContent>
                     <Typography variant="body2" color="text.secondary">
                         {props.post.text}
