@@ -142,11 +142,13 @@ select {
   min-height: 200px;
   width: 100%;
   background-color: white;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   position: relative;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .miniAccName {
@@ -175,6 +177,8 @@ select {
   background-color: darkblue;
   height: 100%;
   width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 
@@ -401,7 +405,7 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
 .button404 p{
   margin-top: 25px;
   background-color: transparent;
-  border: 2px solid #0A66C2;
+  border: 1px solid #0A66C2;
   color: #0A66C2;
   display: flex;
   align-items: center;
@@ -480,14 +484,219 @@ background-color: #E2F0FE;
   margin-bottom: 30px;
 }
 
+
+/* ! fuffa */
+
 .adv{
   background-color: white;
-  margin-top: 5px;
+  margin-top: 7px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
 }
 .adv img{
     width: 95%;
+}
+.lookingForWork{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.lookingForWork > p{
+  color: #666666;
+}
+.noUnderlinepls:hover{
+  text-decoration: none;
+}
+.lookingForWork > h2{
+  margin-top: 20px;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+}
+.lookingForWork img{
+  width: 128px;
+  height: 128px;
+}
+.buttonAreaLookingForWork{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.buttonAreaLookingForWork p{
+  padding: .2rem 6rem;
+  margin-top: 0;
+}
+
+
+.linkedinNews{
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  padding: 10px;
+}
+.linkedinNews ul{
+  width: 85%;
+  margin-left: 30px;
+}
+.linkedinNews ul p{
+  color: #666666;
+  font-size: .7rem;
+}
+.linkedinNews ul li{
+  margin-top: -4px;
+  font-weight: 500;
+  font-size: .9rem;
+}
+.linkedinNews div button{
+  border: none;
+  background-color: white;
+  margin-left: 20px;
+  font-size: .8rem;
+  color: #666666;
+}
+.linkedinNews h3{
+  font-size: 1.1rem;
+}
+.linkedinNews div:nth-child(1){
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.messaggiFix{
+  width: 300px;
+  height: 50px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.messaggiFix div:nth-child(1){
+  display: flex;
+  align-items: center;
+}
+.messaggiFix div:nth-child(1) img{
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  margin-left: 10px;
+}
+.messaggiFix div:nth-child(1) p{
+  margin-top: 14px;
+  margin-left: 10px;
+  font-size: .8rem;
+  font-weight: 500;
+}
+.onlinedot{
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  border-radius: 100%;
+  position: relative;
+  bottom: -10px;
+  left: -8px;
+  border: 2px solid white;
+}
+.messaggiFix div:nth-child(2) svg{
+  margin-right: 5px;
+}
+
+
+.underMiniProfile{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.underMiniProfile > div:nth-child(1), .underMiniProfile > div:nth-child(2) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.underMiniProfile > div{
+  box-sizing: border-box;
+  padding: 15px;
+}
+.underMiniProfile h5{
+  font-size: .8rem;
+  color: #333333;
+}
+.underMiniProfile p{
+  font-size: .7rem;
+  color: #666666;
+}
+.underMiniProfile > div:nth-child(1){
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.underMiniProfile > div:nth-child(1) h5{
+  margin-top: -15px;
+  margin-bottom: -1px;
+}
+.underMiniProfile > div:nth-child(2) h5{
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+.underMiniProfile > div:nth-child(3){
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  margin-bottom: -10px;
+}
+
+.fuffaElementHome{
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 7px;
+}
+.fuffaElementHome div:nth-child(1){
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 10px 5px 2px 5px;
+}
+.fuffaElementHome div:nth-child(1) div:nth-child(1){
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.fuffaElementHome div:nth-child(1) div:nth-child(1) a{
+  font-size: .7rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.fuffaElementHome div:nth-child(2){
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  margin-bottom: -7px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.fuffaElementHome div:nth-child(2) p{
+  color: #5E5E5E;
+  font-size: .9rem;
+  font-weight: 500;
 }

@@ -10,6 +10,9 @@ import PutPostForm from '../modalComponents/PutPostForm'
 import { useState } from 'react'
 import LoadingScreen from "../LoadingScreen"
 import Adv from "../fuffa/Adv"
+import LookingForWork from "../fuffa/LookingforWork"
+import LinkedinNews from "../fuffa/LinkedinNews"
+import FuffaElementHome from "../fuffa/FuffaElementHome"
 
 const HomePage = () => {
 
@@ -47,6 +50,7 @@ const HomePage = () => {
 
             <div className=" flexProportionsFirst">
                 <MiniProfile />
+                <FuffaElementHome/>
 
             </div>
             <div className="visualFuffa">
@@ -60,13 +64,14 @@ const HomePage = () => {
                 </button>
             </div>
             <div className="centerHomeSection">
+                <LookingForWork />
                 <PostNews />
                 <hr />
                 {pagePosts && pagePosts.map((e, i) => (<PostCard className="flexPropCard" key={e._id} post={e} getPost={getPostId} handlePutOpen={handleOpen} />))}
             </div>
 
             <div className=" flexProportionsSecond">
-                <MiniProfile />
+                <LinkedinNews/>
                 <Adv/>
             </div>
 
