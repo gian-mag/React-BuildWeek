@@ -40,14 +40,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-   
 }
 .whoAmI h3{
     font-size: 1rem;
 }
 
 .buttonArea Button{
-    border-radius: 100px ;
+    border-radius: 100px;
 }
 .buttonArea Button:nth-child(2){
     border: 1px solid #1565C0;
@@ -55,6 +54,13 @@
 .buttonArea Button:nth-child(3){
     border: 1px solid gray;
     color: gray;
+}
+
+@media screen and (max-width: 990px) {
+    .buttonArea Button{
+        border-radius: 15px;
+        font-size: 10px;
+    }
 }
 
 .accWrappy {

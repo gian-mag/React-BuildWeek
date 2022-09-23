@@ -1,11 +1,22 @@
 import '../style/NavBar.css'
 import { BsLinkedin, BsSearch } from 'react-icons/bs'
-import { styled, alpha } from '@mui/material/styles';
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getUserAction } from '../redux/actions'
+import { useEffect, useState } from 'react'
+import { useSelector } from "react-redux"
 
 const NavBar = () => {
+
+    const account = useSelector((state) => state.account.user)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+
+        dispatch(getUserAction())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <div className="nav">
@@ -15,30 +26,21 @@ const NavBar = () => {
 
                 <div className="bar">
                     <BsLinkedin className="logo" />
-                    {/* <Search className="alt">
-                    <SearchIconWrapper >
-                        <SearchIcon className="searchIcon" />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        className="input"
-                        placeholder="Cerca"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search> */}
+
                     <input type="search" className="inputBar" placeholder='      Cerca' />
 
-                </div><BsSearch className="searchIcon" />
+                </div>
+                <BsSearch className="searchIcon" />
                 <div className="iconWrapper">
                     <Link to={'/'} className='navigationLink'>
-                    <div className="iconContent">
+                        <div className="iconContent  homeIcon">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
-                            <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
-                        </svg>
-                        <span>Home</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
+                                <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
+                            </svg>
+                            <span>Home</span>
 
-
-                    </div>
+                        </div>
                     </Link>
                     <div className="iconContent">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
@@ -63,12 +65,21 @@ const NavBar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
                             <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"></path>
                         </svg>
-                        <span>Notifiche</span></div>
+                        <span>Notifiche</span>
+                    </div>
+                    <Link to="/profile" className="linkToProfile">
+                        <div className="iconContent">
+
+                            <img src={account.image} alt="logo_personale" className="logoNavBar" />
+                            <span className="spanNavBar">Tu</span>
+
+                        </div>
+                    </Link>
 
                 </div>
-                <div className="line">
-
-                </div>
+                {/* <div className="line">
+                     <span></span>
+                </div> */}
                 <div className="iconContent lav">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
                         <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>

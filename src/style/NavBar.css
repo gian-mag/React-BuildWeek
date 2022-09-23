@@ -22,9 +22,15 @@
 .inputBar {
     background-color: #EEF3F8;
     border: none;
-    height: 4vh!important;
+    height: 4vh !important;
     border-radius: 4px;
     margin-left: .5em;
+}
+
+@media screen and (max-width: 1000px) {
+    .inputBar {
+        display: none;
+    }
 }
 
 .iconWrapper {
@@ -33,23 +39,61 @@
     justify-content: space-evenly;
     width: 50%;
     flex-grow: 1;
-    font-size: .8em!important;
-    margin-left: auto!important;
+    font-size: .8em !important;
+    margin-left: auto !important;
 }
 
 .searchIcon {
-    /* z-index: 1000!important;
-    color: #666666!important;
-    position: relative!important;
-    top: 0;
-    left: -20%;
-    background-color: #EEF3F8; */
+    z-index: 1000 !important;
+    color: #666666 !important;
+    position: relative !important;
+    top: 19px;
+    left: -17.2%;
+    background-color: #EEF3F8;
+}
+.homeIcon {
+    margin-top: 5px;
+}
+@media screen and (max-width: 1200px) {
+    .searchIcon {
+  
+        top: 19px;
+        left: -20.2%;
+        background-color: #EEF3F8;
+    }
+    .homeIcon {
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .searchIcon {
+        top: 14px;
+        left: 3.5%;
+        background-color: white;
+    }
+    .homeIcon {
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .iconContent > span {
+        display: none;
+    }
+    .searchIcon {
+        position: relative !important;
+        top: 9px;
+        left: 4%;
+        background-color: white;
+    }
+    .homeIcon {
+        margin-top: 5px;
+    }
 }
 
-.lav{
-    color: #666666!important;
+.lav {
+    color: #666666 !important;
     margin: 0 .5em;
-    font-size: .8em!important;
+    font-size: .8em !important;
 }
 
 .iconContent {
@@ -58,19 +102,38 @@
     justify-content: center;
     align-items: center;
 }
+
 .line {
-    border: .5px solid #F3F2EF;
+    border: .5px solid #F3F2EF!important;
     height: 100%;
 }
+
 .alt {
-    width: 100%!important;
-    height: 100%!important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
-.navigationLink{
+.navigationLink {
     color: #666666;
 }
-.navigationLink:hover{
+
+.navigationLink:hover {
     color: black;
     text-decoration: none;
+}
+
+.logoNavBar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #F3F2EF;
+}
+.spanNavBar {
+    margin-bottom: 6px;
+    color: #666666;
+}
+
+.linkToProfile {
+    text-decoration: none;
+    color: #F3F2EF;
 }

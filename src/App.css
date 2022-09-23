@@ -588,6 +588,12 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
   margin: 0;
 }
 
+@media screen and (max-width: 990px) {
+  .anaProfQuery {
+    flex-direction: column;
+  }
+}
+
 .analisiProfileSub {
   display: flex;
 }
