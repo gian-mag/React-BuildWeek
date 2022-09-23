@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+svg{
+  cursor: pointer;
+}
+
 .App {
   background-color: rgb(243, 242, 239);
 }
