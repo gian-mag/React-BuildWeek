@@ -479,3 +479,15 @@ background-color: #E2F0FE;
 .loadingScreen svg{
   margin-bottom: 30px;
 }
+
+.adv{
+  background-color: white;
+  margin-top: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+.adv img{
+    width: 95%;
+}

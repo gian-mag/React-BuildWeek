@@ -9,6 +9,7 @@ import PostNews from "../HomePage/PostNews"
 import PutPostForm from '../modalComponents/PutPostForm'
 import { useState } from 'react'
 import LoadingScreen from "../LoadingScreen"
+import Adv from "../fuffa/Adv"
 
 const HomePage = () => {
 
@@ -66,6 +67,7 @@ const HomePage = () => {
 
             <div className=" flexProportionsSecond">
                 <MiniProfile />
+                <Adv/>
             </div>
 
             {
