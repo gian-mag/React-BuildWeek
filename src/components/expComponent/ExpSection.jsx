@@ -82,7 +82,7 @@ const ExpSection = () => {
                         (
                             <div key={i} className="expWrapWrap">
                                 <div className="expWrap">
-                                    <BiUserCircle className="userExp" />
+                                {experience.image ? <img className='uploadedExpImg' src={experience.image} alt='experience_picture'/> : <BiUserCircle className="userExp" />}
                                     <div>
                                         <Typography variant="h6" color="text.secondary">
                                             {experience.role}
