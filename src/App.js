@@ -7,6 +7,7 @@ import ExpSection from './components/expComponent/ExpSection'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HomePage from './components/HomePage/HomePage';
 import NotFound from './components/NotFound';
+import MessaggiFix from './components/fuffa/MessaggiFix';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         {/* <Route path="/" element={}/>
         <Route path="/" element={}/> */}
       </Routes>
+      <MessaggiFix/>
       <Footer />
     </BrowserRouter>
   )
