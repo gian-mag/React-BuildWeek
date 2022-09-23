@@ -52,7 +52,7 @@ const ExpSection = () => {
                         <Typography gutterBottom variant="h5" component="div" className="goBack">
                             <div className="myButtonsSect">
                                 <div className="myBtnWrap myBtnWrapFirst">
-                                    <Link to={"/"} className="myLink">
+                                    <Link to={"/profile"} className="myLink">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="mercado-match iconExp" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
                                             <path d="M9 4l-4.87 7H22v2H4.13L9 20H6.56L1 12l5.56-8z"></path>
                                         </svg>
