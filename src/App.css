@@ -73,12 +73,31 @@ select {
 /* PROFILE CONTAINER */
 
 .profile {
-  width: 90%;
+  width: 1130px;
   margin: .3em auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 1200px) {
+  .profile {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .profile {
+    width: 720px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    width: 576px;
+  }
+}
+
 .profileSect {
   width: 785px;
 }
@@ -91,22 +110,26 @@ select {
   .profileSect {
     width: 635px;
   }
+
   .profileFuffa {
     width: 300px;
   }
 }
+
 @media screen and (max-width: 990px) {
   .profileSect {
     width: 400px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .profileSect {
     width: 576px;
     margin: 0 auto;
   }
+
   .profileFuffa {
-    display:none;
+    display: none;
   }
 }
 
@@ -183,6 +206,7 @@ select {
 .flexProportionsFirst {
   width: 225px;
 }
+
 .flexProportionsSecond {
   width: 300px;
 }
@@ -200,13 +224,13 @@ select {
   width: 96%;
   min-height: 45px;
   color: #5E5E5E;
-  background-color: white!important;
-  text-align: left!important;
+  background-color: white !important;
+  text-align: left !important;
   border: 1px solid #5E5E5E;
 }
 
 .btnInput:hover {
-  background-color: #EBEBEB !important;  
+  background-color: #EBEBEB !important;
 }
 
 .postBtnWrapper {
@@ -229,44 +253,50 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1!important;
+  flex: 1 !important;
 }
 
-.btnPost{
+.btnPost {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   flex-wrap: nowrap;
 }
-.btnPost:nth-child(4) > p {
+
+.btnPost:nth-child(4)>p {
   flex: 2
 }
-.btnPost:nth-child(4) > svg {
+
+.btnPost:nth-child(4)>svg {
   flex: 1
 }
-.btnPost > p {
+
+.btnPost>p {
   margin: 0 0 0 .5em;
   color: #5E5E5E;
   font-size: .8em;
- 
+
 }
+
 .btnPost:hover {
   background-color: #EBEBEB !important;
 }
 
 .centerHomeSection {
   margin: 0 1.5em;
-  width: 540px!important;
+  width: 540px !important;
 }
+
 /* MEDIA QUERY HOMEPAGE */
 @media screen and (max-width: 1200px) {
   .flexProportionsFirst {
     width: 180px;
   }
+
   .centerHomeSection {
     margin: 0 1.5em;
-    width: 432px!important;
+    width: 432px !important;
   }
 }
 
@@ -274,26 +304,32 @@ select {
   .flexProportionsSecond {
     display: none;
   }
+
   .flexProportionsFirst {
     width: 205px;
   }
+
   .centerHomeSection {
     margin: 0 1.5em;
-    width: 495px!important;
+    width: 495px !important;
   }
 }
+
 .visualFuffa {
   display: none;
 }
+
 @media screen and (max-width: 768px) {
   .miniProfile {
-    width:576px;
+    width: 576px;
     flex-direction: column;
   }
+
   .flexProportionsFirst {
     width: 100%;
     margin-bottom: 10px
   }
+
   .visualFuffa {
     display: flex;
     justify-content: center;
@@ -301,10 +337,12 @@ select {
     width: 100%;
     margin-bottom: 10px;
   }
+
   .centerHomeSection {
-    width: 100%!important;
+    width: 100% !important;
     margin: 0 0 10px;
   }
+
   .whoAmI {
     align-self: center;
   }
@@ -314,20 +352,20 @@ select {
   flex: 1;
 } */
 .postFormInput {
-  flex: 5!important;
+  flex: 5 !important;
 }
 
 .postContentWrapper {
-  padding: 1em 0 0!important
+  padding: 1em 0 0 !important
 }
 
 .burgerIcon {
   transform: rotate(90deg);
 }
 
-div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1) {
-  background: none!important;
-  border: none!important;
+div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-child(1) {
+  background: none !important;
+  border: none !important;
 }
 
 .userLogoh {
@@ -339,52 +377,59 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
 
 /* form post add */
 
-.profileintomodal{
+.profileintomodal {
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 20px;
 }
-.profileintomodal div{
- width: 50px;
- height: 50px;
+
+.profileintomodal div {
+  width: 50px;
+  height: 50px;
 }
-.profileintomodal div img{
- width: 100%;
- height: 100%;
- border-radius: 100%;
+
+.profileintomodal div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
 }
-.textareaNP{
+
+.textareaNP {
   border: none;
 }
-.btnfooterNPmodal{
+
+.btnfooterNPmodal {
   margin-left: auto !important;
 }
-.allidk{
+
+.allidk {
   display: flex;
   align-items: center;
   border-left: 1px solid rgba(145, 145, 145, 0.509);
-  padding-left: 1.5%!important;
+  padding-left: 1.5% !important;
 }
-.footFormPost{
+
+.footFormPost {
   display: flex;
   justify-content: space-between !important;
   align-items: center;
 }
+
 .footFormPost svg {
   margin-left: 2%;
   margin-right: 1%;
 }
 
-.uploadedExpImg{
+.uploadedExpImg {
   width: 75px;
   height: 75px;
   margin-right: .3em;
   border: 1px solid white;
 }
 
-.card404{
+.card404 {
   width: 320px;
   margin: 10vh auto;
   display: flex;
@@ -392,13 +437,16 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
   align-items: center;
   text-align: center;
 }
+
 .card404 h2 {
   font-size: 24px;
 }
+
 .card404 p {
- margin: 8px 0 25px;
+  margin: 8px 0 25px;
 }
-.button404 p{
+
+.button404 p {
   margin-top: 25px;
   background-color: transparent;
   border: 2px solid #0A66C2;
@@ -409,44 +457,48 @@ div.MuiPaper-root > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > but
   border-radius: 100px;
   font-weight: 500;
 }
-.button404:hover p{
-background-color: #E2F0FE;
-} 
-.button404:hover{
+
+.button404:hover p {
+  background-color: #E2F0FE;
+}
+
+.button404:hover {
   text-decoration: none;
 }
 
 
 /* ! preview all image */
 
-.flexUploadFileExp{
+.flexUploadFileExp {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.previewImgExp{
+
+.previewImgExp {
   width: 75px;
   height: 75px;
 }
 
 
-.flexcenterpostpreview{
+.flexcenterpostpreview {
   display: flex;
   justify-content: center;
 }
-.previewImgPost{
+
+.previewImgPost {
   width: 50%;
 }
 
 
-.profilePicModal{
+.profilePicModal {
   width: 200px;
   height: 200px;
   border-radius: 100%;
   border: 5px solid white;
 }
 
-.modalForm{
+.modalForm {
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -454,7 +506,7 @@ background-color: #E2F0FE;
   justify-content: space-around;
 }
 
-.imputPicProfile{
+.imputPicProfile {
   margin-left: 15%;
 }
 
@@ -462,7 +514,7 @@ background-color: #E2F0FE;
 
 /* ! loading screen */
 
-.loadingScreen{
+.loadingScreen {
   position: absolute;
   z-index: 100000000;
   background-color: #F3F2EF;
@@ -476,11 +528,12 @@ background-color: #E2F0FE;
   top: 0;
   left: 0;
 }
-.loadingScreen svg{
+
+.loadingScreen svg {
   margin-bottom: 30px;
 }
 
-.adv{
+.adv {
   background-color: white;
   margin-top: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -488,6 +541,149 @@ background-color: #E2F0FE;
   display: flex;
   justify-content: center;
 }
-.adv img{
-    width: 95%;
+
+.adv img {
+  width: 95%;
+}
+
+/* FIX SEZIONI FUFFA PROFILO */
+
+.firstSection {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: white;
+  color: #666666;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.firstSection a {
+  color: #666666;
+}
+
+.firstSectionOne {
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: .1px;
+  font-size: 1em;
+}
+
+.companyKnown {
+  margin-top: 8px;
+}
+
+.learningHeader {
+  display: flex;
+  align-items: center;
+}
+
+.titleHeader {
+  font-size: .7em;
+  margin-left: .5em;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.subTitle {
+  color: #191919;
+  margin-top: 8px;
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: .8em 0;
+}
+
+.sectionTitle div {
+  color: #191919;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: .4em;
+}
+
+.singleUserCard {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.singleUserCard div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-size: .8rem;
+}
+
+.singleUserCard div h4 {
+  font-size: 1em;
+  margin-bottom: 0;
+  color: #191919;
+  font-weight: 600;
+}
+
+.knownPeople {
+  margin-left: 0 !important;
+  margin-right: 8px !important;
+}
+
+.titleAllFuffa {
+  font-size: 1.1em;
+  color: #191919;
+}
+
+.analisiProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 10px;
+  padding: 16px 16px 24px;
+  margin: 8px 0;
+}
+
+.analisiProfileHeader {
+  margin-bottom: 12px;
+}
+
+.analisiProfileHeader span {
+  display: flex;
+  align-items: center;
+  color: #666666;
+  font-size: 14px;
+}
+
+.analisiProfile div h4 {
+  margin: 0;
+}
+
+.analisiProfileSub {
+  display: flex;
+}
+
+.analisiSections {
+  display: flex;
+  color: #666666;
+}
+
+.analisiSectionsSub > div {
+  display: flex;
+  flex-direction: column;
+  color: #191919;
+  padding: 0 15px;
+  width: 220px;
+
+}
+
+.SubHeader {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.analisiSectionsSub div span {
+  color: #666666;
+  font-size: 14px;
 }

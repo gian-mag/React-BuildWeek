@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import PutUserModal from '../modalComponents/PutUserModal';
 import AddImgModal from '../modalComponents/AddImgModal';
-/* import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getUserAction } from '../../redux/actions' */
+import AnalisiProfile from '../fuffa/AnalisiProfile'
+import RisorseProfile from '../fuffa/RisorseProfile'
+import AttivitàProfile from '../fuffa/AttivitàProfile'
+import InteressiProfile from '../fuffa/InteressiProfile'
 
 
 const PresentationCard = (props) => {
@@ -76,6 +77,7 @@ const PresentationCard = (props) => {
             </div>}
         <PutUserModal show={openModal} handleClosed={handleClose} account={account}/>
         <AddImgModal show={openImgModal} handleClosed={handleCloseImg} accountimg={account.image}/>
+        <AnalisiProfile />
         </div>
 
     )
