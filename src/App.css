@@ -338,7 +338,18 @@ select {
 .visualFuffa {
   display: none;
 }
-
+.artdecoR {
+    background-color: #F3F2EF!important;
+    border: none;
+    width: 100%;
+}
+.artdecoR:hover {
+  background-color: #E0DFDC!important;
+  border-radius: 3px;
+}
+.arteSpan {
+  margin-left: 5px;
+}
 @media screen and (max-width: 768px) {
   .miniProfile {
     width: 576px;
@@ -492,6 +503,11 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
   text-decoration: none;
 }
 
+@media screen and (max-width: 1200px) {
+  .buttonForWork p{
+    margin: 0 4px;
+  }
+}
 
 /* ! preview all image */
 
@@ -996,4 +1012,18 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
 
   margin: 0;
   font-weight: 600;
+}
+.userLinkati {
+  padding: 2px 4px!important;
+  width: 130px;
+  margin: 4px 6px 10px!important;
+  border: 1px solid #666666!important;
+}
+.userLinkati > span, .userLinkati > svg{
+  color: #666666;
+}
+
+.userLinkati > svg{
+  color: #666666;
+  margin-right: 4px;
 }
