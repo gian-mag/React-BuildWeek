@@ -1,0 +1,123 @@
+.footLogo {
+    color: #0A66C2!important;
+    
+}
+
+.footer {
+    background-color: #F3F2EF;
+    color: #616160;
+
+}
+
+.footer a {
+    color: #616160;
+    text-decoration: none;
+
+}
+
+.footWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+.footerSection:nth-child(1) {
+    margin-left: .7em;
+}
+.footerSection:nth-child(4) {
+    margin-right: .5em;
+}
+.footerSection:last-child {
+    margin-right: .7em;
+}
+.footLogoWrapper {
+    display:flex;
+    padding: .5em;
+}
+
+.footerSection {
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+    line-height: 2;
+    font-size: 12px;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.footFinal {
+    text-align: left;
+    margin-left: .5em;
+    padding: 2em 0;
+    font-size: 12px;
+}
+
+.iconWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.iconWrap h4 {
+    margin: 0;
+    font-size: 13px;
+}
+.footSectionWrap {
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#lang {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: .3em;
+    width: 90%;
+}
+.marginfootcontainer{
+    margin-top: 40px;
+    padding: 0 380px;
+}
+@media screen and (max-width:1550px) {
+    .marginfootcontainer{
+        padding: 0 200px;
+    }
+}
+@media screen and (max-width:1300px) {
+    .marginfootcontainer{
+        padding: 0 100px;
+    }
+}
+@media screen and (max-width:1000px) {
+    .marginfootcontainer{
+        padding: 0 50px;
+    }
+}
+@media screen and (max-width:780px) {
+    .marginfootcontainer{
+        padding: 0 0px;
+    }
+}
+@media screen and (max-width:780px) {
+    .footWrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footerSection{
+        align-items: center;
+        text-align: center;
+    }
+    .footerSection a{
+        margin: 0 auto;
+    }
+    .leftmargfoot{
+        margin-right: -30px !important;
+    }
+}

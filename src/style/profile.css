@@ -1,8 +1,4 @@
-.profile{
-    width: 60%;
-    margin: 0 auto;
-    box-sizing: border-box; 
-}
+
 
 .presentationCard{
     min-height: 600px;
@@ -16,9 +12,11 @@
 
 .banner{
     flex: 2;
-    background-color: darkblue;
+    background-color: #0A66C2;
     height: 30%;
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .profileImg{
     width: 150px;
@@ -29,25 +27,26 @@
     position: absolute;
     top: 85px;
     left: 40px;
+    cursor: pointer;
 }
 .profileImg img{
-    width: 100%;
-    border-radius: 100%;
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: 50%;
 }
 .bottomPart{ 
     flex: 2.4;  
-    padding: 30px;
+    padding: 16px 16px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-   
 }
 .whoAmI h3{
     font-size: 1rem;
 }
 
 .buttonArea Button{
-    border-radius: 100px ;
+    border-radius: 100px;
 }
 .buttonArea Button:nth-child(2){
     border: 1px solid #1565C0;
@@ -55,4 +54,17 @@
 .buttonArea Button:nth-child(3){
     border: 1px solid gray;
     color: gray;
+}
+
+@media screen and (max-width: 990px) {
+    .buttonArea Button{
+        border-radius: 15px;
+        font-size: 10px;
+    }
+}
+
+.accWrappy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
