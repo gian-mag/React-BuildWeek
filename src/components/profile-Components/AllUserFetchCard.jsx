@@ -1,19 +1,17 @@
-import { useSelector } from "react-redux"
 import Button from '@mui/material/Button';
 
 const AllUserFetchCard = (props) => {
 
-    const account = useSelector((state) => state.account.user)
 
     return (
         <div>
             {
-                account && (<div className="singleUserCard">
+                props.account && (<div className="singleUserCard">
 
-                    <img src={account.image} alt="userLogo" className="postUserImg knownPeople" />
-                    <div >
-                        <h4>{account.name} {account.surname}</h4>
-                        <span>{account.title}</span>
+                    <img src={props.account.image} alt="userLogo" className="postUserImg knownPeople" />
+                    <div className="">
+                        <h4>{props.account.name} {props.account.surname}</h4>
+                        <span>{props.account.title}</span>
                         <div className="buttonArea">
                             
                             <Button variant="outlined">

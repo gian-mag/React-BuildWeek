@@ -96,10 +96,10 @@ const PutUserModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="modalForm">
+                <div className="modalFormNotCenter">
 
 
-                    <form className="modalForm">
+                    <form className="modalFormNotCenter">
                         <div>
                             <p>Nome*</p>
                             <input className="inputForm" type="text" placeholder="Nome" required value={modUserNoBio.name} onChange={(e) => {

@@ -81,7 +81,7 @@ const ModalNewPost = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="modalForm">
+                <div className="modalFormNotCenter">
 
                     <div className="profileintomodal">
                         <div>

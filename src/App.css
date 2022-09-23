@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+svg{
+  cursor: pointer;
+}
+
 .App {
   background-color: rgb(243, 242, 239);
 }
@@ -392,6 +396,12 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
 
 
 /* form post add */
+
+.modalFormNotCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 .profileintomodal {
   width: 50%;

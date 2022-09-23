@@ -88,7 +88,7 @@ const AddExpForm = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form className="modalForm">
+                <form className="modalFormNotCenter">
                     <div>
                         <p>Qualifica*</p>
                         <input className="inputForm" type="text" placeholder="Esempio: Retail Sales Manager" required onChange={(e) => {

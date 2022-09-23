@@ -73,7 +73,7 @@ const PutPostForm = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form className="modalForm">
+                <form className="modalFormNotCenter">
 
                     <div>
                         <textarea cols="30" rows="10" value={modPost.text} placeholder="Di cosa vorresti parlare?" onChange={(e) => { handleChange('text', e.target.value) }}></textarea>

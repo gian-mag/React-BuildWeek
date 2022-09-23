@@ -1,7 +1,7 @@
 .nav {
     background: white;
     width: 100vw;
-    height: 6vh;
+    height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,7 +10,6 @@
 .logo {
     color: #0A66C2;
     font-size: 2em;
-    margin-left: 1em;
     width: 100%;
 }
 
@@ -39,12 +38,12 @@
 }
 
 .searchIcon {
-    z-index: 1000!important;
+    /* z-index: 1000!important;
     color: #666666!important;
     position: relative!important;
     top: 0;
     left: -20%;
-    background-color: #EEF3F8;
+    background-color: #EEF3F8; */
 }
 
 .lav{
@@ -66,4 +65,12 @@
 .alt {
     width: 100%!important;
     height: 100%!important;
+}
+
+.navigationLink{
+    color: #666666;
+}
+.navigationLink:hover{
+    color: black;
+    text-decoration: none;
 }
