@@ -4,6 +4,10 @@ const Footer = () => {
 
     return (
         <div className="footer">
+
+            <div className='profile'>
+
+           
             <div className="footLogoWrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 21" data-supported-dps="84x21" fill="currentColor" className="mercado-match footLogo" width="84" height="21" focusable="false">
                     <g>
@@ -73,6 +77,7 @@ const Footer = () => {
             </div>
             <div className="footFinal">
                 LinkedIn Corporation &copy; 2022
+            </div>
             </div>
 
         </div>
