@@ -197,7 +197,7 @@ select {
 
 .miniBanner {
   flex: 4;
-  background-color: darkblue;
+  background-color: #0A66C2;
   height: 100%;
   width: 100%;
   border-top-left-radius: 10px;
@@ -547,7 +547,9 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
 .analisiProfileHeader {
   margin-bottom: 12px;
 }
-
+.analisiProfileHeader svg {
+  margin-right: .3em;
+}
 .analisiProfileHeader span {
   display: flex;
   align-items: center;
@@ -883,6 +885,7 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
   color: #191919;
 }
 
+
 .analisiProfile {
   display: flex;
   flex-direction: column;
@@ -892,4 +895,70 @@ div.MuiPaper-root>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>button:nth-
   margin: 8px 0;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.attivitàProfile {
+  padding: 16px 16px 10px;
+}
+.attivitàProfile > hr {
+  margin-bottom: 10px;
+}
+.attivitàProfile > hr {
+  margin-top: 8px;
+}
+.ActivityHeader {
+  padding: 0 15px 0 0!important;
+  display: flex!important;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.ActivityHeader div {
+  color: #191919;
+}
+.ActivityHeader span {
+  color: #191919;
+  font-size: 14px;
+}
+
+.followers {
+  color: #1565C0!important;
+  font-weight: 600;
+}
+
+.btnFuffa {
+  font-size: 18px;
+  color: #666666;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.fuffaContainer {
+  display: flex;
+  color: #666666;
+  justify-content: center;
+  align-items: center;
+}
+
+.interestProfile {
+  display: flex;
+  align-items: center;
+}
+.interestProfile img {
+  margin-right: .7em;
+}
+.interestProfile div > h2{
+  color: #191919;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.interestProfile div div{
+  font-size: 14px;
+}
+
+.interestHeader {
+  font-size: 16px;
+  color: green;
+
+  margin: 0;
+  font-weight: 600;
 }

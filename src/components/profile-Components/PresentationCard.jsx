@@ -5,7 +5,6 @@ import { useState } from 'react';
 import PutUserModal from '../modalComponents/PutUserModal';
 import AddImgModal from '../modalComponents/AddImgModal';
 import AnalisiProfile from '../fuffa/AnalisiProfile'
-import RisorseProfile from '../fuffa/RisorseProfile'
 import AttivitàProfile from '../fuffa/AttivitàProfile'
 import InteressiProfile from '../fuffa/InteressiProfile'
 
@@ -78,6 +77,8 @@ const PresentationCard = (props) => {
         <PutUserModal show={openModal} handleClosed={handleClose} account={account}/>
         <AddImgModal show={openImgModal} handleClosed={handleCloseImg} accountimg={account.image}/>
         <AnalisiProfile />
+        <AttivitàProfile />
+        <InteressiProfile />
         </div>
 
     )

@@ -11,7 +11,7 @@ const AllUserFetchCard = (props) => {
                 account && (<div className="singleUserCard">
 
                     <img src={account.image} alt="userLogo" className="postUserImg knownPeople" />
-                    <div className="">
+                    <div >
                         <h4>{account.name} {account.surname}</h4>
                         <span>{account.title}</span>
                         <div className="buttonArea">
