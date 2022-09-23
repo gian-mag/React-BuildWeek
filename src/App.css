@@ -73,9 +73,41 @@ select {
 /* PROFILE CONTAINER */
 
 .profile {
-  width: 60%;
+  width: 90%;
   margin: .3em auto;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.profileSect {
+  width: 785px;
+}
+
+.profileFuffa {
+  width: 325px;
+}
+
+@media screen and (max-width: 1200px) {
+  .profileSect {
+    width: 635px;
+  }
+  .profileFuffa {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .profileSect {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .profileSect {
+    width: 576px;
+    margin: 0 auto;
+  }
+  .profileFuffa {
+    display:none;
+  }
 }
 
 .profileTwo {
